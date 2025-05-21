@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Jersey 15';
+  src: url('/fonts/Jersey_15/Jersey15-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Doto';
+  src: url('/fonts/Doto/static/Doto-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #1e1e2f; /* dark purple-blue */
+  margin: 0;
+  color: white;
+  background-color: #100041; /* dark purple-blue */
+  /*font-family: system-ui, sans-serif;*/
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-family: "Jersey 15";
+}

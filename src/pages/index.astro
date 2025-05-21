@@ -1,14 +1,10 @@
 ---
 import CubeScene from '../components/CubeScene.jsx';
+import Layout from '../layouts/Layout.astro'
+import '../styles/global.css'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Astro + React 3D</title>
-  </head>
-  <body>
-    <h1>3D Cube in Astro with React</h1>
-    <CubeScene client:load />
-  </body>
-</html>
+<Layout>
+	<h1>Hi, I'm Noor!</h1>
+	<CubeScene client:load />
+</Layout>
