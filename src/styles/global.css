@@ -34,12 +34,14 @@ h1 {
     color: rgb(255, 255, 255);
     font-family: "Jersey 15";
     margin: 0.5rem 0;
+    font-size: 50px;
 }
 
 p {
     color: rgb(255, 255, 255);
     font-family: "RobotoMono";
     margin: 0.5rem 0;
+    font-size: 20px;
 }
 
 .intro {
@@ -52,10 +54,7 @@ p {
   animation: fadeToCyan 2s ease-in-out forwards;
 }
 
-.contact-icons {
-  color: white;
-  
-}
+
 
 @keyframes fadeToCyan {
   0% {
