@@ -14,15 +14,57 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background-color: #1e1e2f; /* dark purple-blue */
   margin: 0;
   color: white;
-  background-color: #100041; /* dark purple-blue */
+  background-color: #110535; /* dark purple-blue */
   /*font-family: system-ui, sans-serif;*/
 }
 
 h1 {
     color: rgb(255, 255, 255);
     font-family: "Jersey 15";
+    margin: 0.5rem 0;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-family: "RobotoMono";
+    margin: 0.5rem 0;
+}
+
+.intro {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.highlight {
+  color: white;
+  animation: fadeToCyan 2s ease-in-out forwards;
+}
+
+.contact-icons {
+  color: white;
+  
+}
+
+@keyframes fadeToCyan {
+  0% {
+    color: white;
+  }
+  75% {
+    color: white;
+  }
+  100% {
+    color: #00E1FF;
+  }
 }

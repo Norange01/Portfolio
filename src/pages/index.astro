@@ -2,9 +2,25 @@
 import CubeScene from '../components/CubeScene.jsx';
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
+import envelope from '../assets/icons/envelope.svg';
+import linkedin from '../assets/icons/linkedin.svg';
+import file from '../assets/icons/file.svg';
 ---
 
 <Layout>
-	<h1>Hi, I'm Noor!</h1>
-	<CubeScene client:load />
+	<div class="intro">
+		<h1>Hi, I'm <span class="highlight">Noor</span>.</h1>
+		<h1>A Mechatronics and Biomedical Engineer in Training.</h1>
+		<a href="https://www.linkedin.com/in/noor-al-rajab/"
+				><img src={linkedin.src} class='contact-icons' width="115" height="48" alt="My Linkedin" /></a
+			>
+		<a href="mailto:nalrajab01@gmail.com"
+				><img src={envelope.src} class='contact-icons' width="115" height="48" alt="My Email" /></a
+			>
+		<!--a href="https://www.linkedin.com/in/noor-al-rajab/"
+				><img src={file.src} width="115" height="48" alt="My Resume" /></a
+			-->
+		<p>But wait, there's more 🠋</p>
+		<CubeScene client:load />
+	</div>
 </Layout>
