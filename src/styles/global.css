@@ -23,22 +23,21 @@
 }
 
 body {
-  background-color: #1e1e2f; /* dark purple-blue */
   margin: 0;
   color: white;
-  background-color: #110535; /* dark purple-blue */
+  background-color: #4a314d; /* dark purple-blue */
   /*font-family: system-ui, sans-serif;*/
 }
 
 h1 {
-    color: rgb(255, 255, 255);
+    color: #59c9a5;
     font-family: "Jersey 15";
     margin: 0.5rem 0;
     font-size: 50px;
 }
 
 p {
-    color: rgb(255, 255, 255);
+    color: #59c9a5;
     font-family: "RobotoMono";
     margin: 0.5rem 0;
     font-size: 20px;
@@ -50,20 +49,62 @@ p {
 }
 
 .highlight {
-  color: white;
+  color: #59c9a5;
   animation: fadeToCyan 2s ease-in-out forwards;
 }
 
 
 
+/* footer */
+
+:where(footer) {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-sm);
+    background-color: hsl(var(--muted));
+    box-shadow: var(--shadow-lg);
+
+    & div {
+      display: grid;
+      place-items: center;
+      max-width: 1500px;
+      margin-inline: auto;
+      gap: var(--space-sm);
+
+      @media (--sm) {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      & a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  small {
+		font-size: var(--fs-sm);
+    color:#59c9a5;
+	}
+
+  #footer-div {
+    box-shadow: 0px -6px 6px #342435;
+  }
+
+
+
+
 @keyframes fadeToCyan {
   0% {
-    color: white;
+    color: #59c9a5;
   }
   75% {
-    color: white;
+    color: #59c9a5;
   }
   100% {
-    color: #00E1FF;
+    color: white;
   }
 }

@@ -6,7 +6,7 @@ function Box() {
   return (
     <mesh rotation={[0.5, 0.5, 0]}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="#00e1ff" />
+      <meshStandardMaterial color="#59c9a5" />
     </mesh>
   );
 }
@@ -14,8 +14,8 @@ function Box() {
 export default function CubeScene() {
   return (
     <Canvas style={{ height: '400px' }}>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[1, 1, 1]} />
+      <ambientLight intensity={1} />
+      <pointLight position={[0.8, 0.8, 0.8]} />
       <Box />
       <OrbitControls />
     </Canvas>
