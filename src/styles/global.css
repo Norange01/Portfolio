@@ -50,8 +50,21 @@ p {
 
 .highlight {
   color: #59c9a5;
-  animation: fadeToCyan 2s ease-in-out forwards;
+  animation: highlightAnimation 2s ease-in-out forwards;
 }
+
+.contact-icons {
+  fill: #f2bac9;
+  transition: fill 0.5s ease;
+  width: 48px;
+  height: 48px;
+  margin: 0 1rem;
+}
+
+.contact-icons:hover {
+  fill: white;
+}
+
 
 
 
@@ -97,7 +110,7 @@ p {
 
 
 
-@keyframes fadeToCyan {
+@keyframes highlightAnimation {
   0% {
     color: #59c9a5;
   }
