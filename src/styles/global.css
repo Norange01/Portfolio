@@ -45,17 +45,20 @@ h1 {
 }
 
 p {
-    color: var(--color3);
+    color: var(--color4);
     font-family: "RobotoMono";
     margin: 0.5rem 0.5rem;
     font-size: 20px;
 }
 
 .intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
   text-align: center;
-  margin-top: 3rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
 }
 
 .highlight {
@@ -69,6 +72,8 @@ p {
   width: 48px;
   height: 48px;
   margin: 0 1rem;
+  display:inline;
+  position: relative;
 }
 
 .contact-icons:hover {
