@@ -39,13 +39,15 @@ h1 {
 p {
     color: #59c9a5;
     font-family: "RobotoMono";
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem;
     font-size: 20px;
 }
 
 .intro {
   text-align: center;
   margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .highlight {
