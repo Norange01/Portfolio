@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: 'Jersey 15';
+  font-family: 'Jersey15';
   src: url('/fonts/Jersey_15/Jersey15-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -30,6 +30,38 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'ArtistFont';
+  src: url('/fonts/Ingrid_Darling/IngridDarling-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ProgrammerFont';
+  src: url('/fonts/Cascadia_Code/CascadiaCode-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TutorFont';
+  src: url('/fonts/Love_Ya_Like_A_Sister/LoveYaLikeASister-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MentorFont';
+  src: url('/fonts/Lobster/Lobster-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   color: var(--color5);
@@ -39,7 +71,7 @@ body {
 
 h1 {
     color: var(--color3);
-    font-family: "Jersey 15";
+    font-family: "Jersey15";
     margin: 0.5rem 0;
     font-size: 50px;
 }
