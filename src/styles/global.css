@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'ArtistFont';
-  src: url('/fonts/Ingrid_Darling/IngridDarling-Regular.ttf') format('truetype');
+  src: url('/fonts/Petit_Formal_Script/PetitFormalScript-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -96,6 +96,10 @@ p {
 .highlight {
   color: var(--color3);
   animation: highlightAnimation 2s ease-in-out forwards;
+}
+
+.highlighted-role {
+  color: #f2bac9;
 }
 
 .contact-icons {
