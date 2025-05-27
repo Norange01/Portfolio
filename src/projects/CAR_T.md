@@ -10,3 +10,4 @@ links: []
 linkTitles: []
 linkTypes: []
 ---
+Developed an algorithm that ranks CAR T-cell therapy targets on the basis of predicted efficacy for autoimmune diseases using single cell RNA sequence data.

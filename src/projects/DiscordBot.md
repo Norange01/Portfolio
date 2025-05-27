@@ -5,7 +5,7 @@ affiliation:
 image:
     url:
     alt:
-skills: ['Python']
+skills: ['Python', 'Raspberry Pi']
 links: []
 linkTitles: []
 linkTypes: []

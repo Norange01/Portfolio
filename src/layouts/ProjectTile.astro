@@ -1,0 +1,22 @@
+---
+import '../styles/global.css'
+
+export interface Props {
+  type: string;
+  affiliation: string;
+  title: string;
+}
+
+const { type, affiliation, title } = Astro.props as Props;
+---
+
+<section>
+    <div class="tile-top" style="display: inline-block">
+        <p style="text-align: left">{type}</p>
+        <p style="text-align: right">{affiliation}</p>
+    </div>
+    <h1>
+        {title}
+    </h1>
+    <slot/>
+</section>

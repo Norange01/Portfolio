@@ -1,0 +1,7 @@
+---
+import ProjectTile from "../layouts/ProjectTile.astro";
+const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
+---
+
+{files.map((proj:any) => <ProjectTile title={proj.frontmatter.title} type={proj.frontmatter.type} affiliation={proj.frontmatter.affiliation}>{proj.frontmatter.slug}</ProjectTile>)}
+

@@ -10,3 +10,4 @@ links: []
 linkTitles: []
 linkTypes: []
 ---
+A Proof of Concept Capstone project consisting of a machine learning model on an ESP32 that detects and classifies arrhythmia instances from ECG and PPG signals.

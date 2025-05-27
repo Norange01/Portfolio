@@ -10,3 +10,4 @@ links: []
 linkTitles: []
 linkTypes: []
 ---
+Wrote code, modeled and designed a Rubik's Cube Solver program using Unity Game Engine and C#.
