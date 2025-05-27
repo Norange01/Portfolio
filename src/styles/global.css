@@ -1,8 +1,9 @@
 :root {
-  --color1: #1a090d;
-  --color2: #4a314d;
-  --color3: #59c9a5;
-  --color4: #b9e3c6;
+  --color1: #051826;
+  --color2: #1A2D3B;
+  --color3: #b1b7c0;
+  --color4Dark: #428073;
+  --color4: #1DFD5F;
   --color5: #ffffff;
 }
 
@@ -99,11 +100,11 @@ p {
 }
 
 .highlighted-role {
-  color: #f2bac9;
+  color: var(--color4);
 }
 
 .contact-icons {
-  fill: var(--color4);
+  fill: var(--color4Dark);
   transition: fill 0.5s ease;
   width: 48px;
   height: 48px;
@@ -113,7 +114,7 @@ p {
 }
 
 .contact-icons:hover {
-  fill: var(--color5);
+  fill: var(--color4);
 }
 
 
@@ -155,7 +156,7 @@ p {
 	}
 
   #footer-div {
-    box-shadow: 0px -6px 6px #342435;
+    box-shadow: 0px -6px 6px var(--color1);
   }
 
 
