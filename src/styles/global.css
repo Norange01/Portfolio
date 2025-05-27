@@ -71,7 +71,7 @@ body {
 }
 
 h1 {
-    color: var(--color3);
+    color: var(--color4);
     font-family: "Jersey15";
     margin: 0.5rem 0;
     font-size: 50px;
@@ -95,12 +95,12 @@ p {
 }
 
 .highlight {
-  color: var(--color3);
+  color: var(--color4Dark);
   animation: highlightAnimation 2s ease-in-out forwards;
 }
 
 .highlighted-role {
-  color: var(--color4);
+  color: var(--color5);
 }
 
 .contact-icons {
@@ -164,10 +164,10 @@ p {
 
 @keyframes highlightAnimation {
   0% {
-    color: var(--color3);
+    color: var(--color4Dark);
   }
   75% {
-    color: var(--color3);
+    color: var(--color4Dark);
   }
   100% {
     color: var(--color5);
