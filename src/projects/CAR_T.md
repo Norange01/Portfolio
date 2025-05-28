@@ -9,5 +9,5 @@ skills: ['AI', 'Python', 'Data Processing and Analysis', 'Algorithm Development'
 links: []
 linkTitles: []
 linkTypes: []
+description: "Developed an algorithm that ranks CAR T-cell therapy targets on the basis of predicted efficacy for autoimmune diseases using single cell RNA sequence data."
 ---
-Developed an algorithm that ranks CAR T-cell therapy targets on the basis of predicted efficacy for autoimmune diseases using single cell RNA sequence data.

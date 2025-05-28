@@ -10,13 +10,35 @@ export interface Props {
 const { type, affiliation, title } = Astro.props as Props;
 ---
 
-<section>
-    <div class="tile-top" style="display: inline-block">
-        <p style="text-align: left">{type}</p>
-        <p style="text-align: right">{affiliation}</p>
+
+
+<div class="card-layout">
+    <div class="card-layout__item">
+        <div class="tile-top" style="display:flex; justify-content: space-between">
+            <small>{type}</small>
+            <small>{affiliation}</small>
+             
+        </div>
+            <h2>
+                {title}
+            </h2>
+        <slot/>
     </div>
-    <h1>
-        {title}
-    </h1>
-    <slot/>
-</section>
+
+</div>
+
+<style>
+    .card-layout{
+        display:flex;
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+        outline: 2px solid var(--color3);
+    }
+    .card-layout__item{
+        flex-basis: 50%;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        
+    }
+</style>
+

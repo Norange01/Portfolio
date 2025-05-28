@@ -9,5 +9,5 @@ skills: ['Unity Game Engine', 'UI/UX', 'C#', 'Algorithm Development']
 links: []
 linkTitles: []
 linkTypes: []
+descruotuib: "Wrote code, modeled and designed a Rubik's Cube Solver program using Unity Game Engine and C#."
 ---
-Wrote code, modeled and designed a Rubik's Cube Solver program using Unity Game Engine and C#.

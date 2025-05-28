@@ -9,4 +9,5 @@ skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
 links: []
 linkTitles: []
 linkTypes: []
+description:
 ---

@@ -9,4 +9,5 @@ skills: ['UI/UX', 'Python', 'Algorithm Development']
 links: []
 linkTitles: []
 linkTypes: []
+description:
 ---

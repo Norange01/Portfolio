@@ -9,4 +9,5 @@ skills: ['C++', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'S
 links: []
 linkTitles: []
 linkTypes: []
+description:
 ---

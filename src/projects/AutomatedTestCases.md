@@ -9,5 +9,5 @@ skills: ['Java', 'Web Scraping']
 links: []
 linkTitles: []
 linkTypes: []
+description: "Facilitated routine testing for a student information system platform by creating 28 automated test cases with Java and Selenium and found over 20 bugs, some of which were high priority."
 ---
-Facilitated routine testing for a student information system platform by creating 28 automated test cases with Java and Selenium and found over 20 bugs, some of which were high priority.
