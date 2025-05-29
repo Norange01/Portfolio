@@ -14,6 +14,13 @@ export interface Props {
 }
 
 const { type, affiliation, title, videoLink="" } = Astro.props as Props;
+
+let videoAvailable=videoLink!=="";
+let videoIsLocal = true;
+if(videoLink.includes("http")){
+    videoIsLocal=false;
+}
+
 ---
 
 
@@ -30,7 +37,17 @@ const { type, affiliation, title, videoLink="" } = Astro.props as Props;
         <p class="card-description">
             <slot/>
         </p>
-        <a href={videoLink} class="card-link"><PlayIcon/> Watch video</a>
+        {videoAvailable && (
+            !videoIsLocal && (
+                <a href={videoLink} class="card-link" target="_blank" rel="noopener noreferrer">
+                    <PlayIcon /> WATCH VIDEO
+                </a>
+            ) 
+            || videoIsLocal && ( /*PLACE HOLDER */
+                <a href={videoLink} class="card-link" target="_blank" rel="noopener noreferrer">
+                    <PlayIcon /> WATCH VIDEO
+                </a>
+            ))}
     </div>
 </div>
 
@@ -54,7 +71,14 @@ const { type, affiliation, title, videoLink="" } = Astro.props as Props;
     }
 
     .card-link{
-        color=var(--color4);
+        color:var(--color4);
+        font-family: "Chakra";
+        display:flex;
+    }
+
+    .card-link:hover{
+        color:var(--color2);
+        background-color: var(--color4);
     }
 </style>
 

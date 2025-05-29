@@ -11,7 +11,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
                 title={proj.frontmatter.title} 
                 type={proj.frontmatter.type} 
                 affiliation={proj.frontmatter.affiliation}
-                videoLink=proj.frontmatter.videoLink>{proj.frontmatter.description}</ProjectTile>
+                videoLink={proj.frontmatter.videoLink}>{proj.frontmatter.description}</ProjectTile>
         </div> 
     )}
 </div>

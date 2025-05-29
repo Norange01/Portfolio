@@ -6,7 +6,7 @@ image:
     url:
     alt:
 skills: ['C++', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'Signal Processing']
-videoLink:
+videoLink:  ""
 links: []
 linkTitles: []
 linkTypes: []

@@ -6,7 +6,7 @@ image:
     url:
     alt:
 skills: ['AI', 'Python', 'Data Processing and Analysis', 'Algorithm Development']
-videoLink:
+videoLink: "/WorldSclerodermaDay.mp4"
 links: []
 linkTitles: []
 linkTypes: []

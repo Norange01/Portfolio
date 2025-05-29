@@ -6,7 +6,7 @@ image:
     url:
     alt:
 skills: ['UI/UX', 'Python', 'Algorithm Development']
-videoLink:
+videoLink: ""
 links: []
 linkTitles: []
 linkTypes: []
