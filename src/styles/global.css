@@ -94,7 +94,7 @@ h2 {
 p {
     color: var(--color4);
     font-family: "RobotoMono";
-    margin: 0.5rem 0.5rem;
+    /*margin: 0.5rem 0.5rem;*/
     font-size: 20px;
 }
 

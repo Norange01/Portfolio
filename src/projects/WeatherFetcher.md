@@ -6,6 +6,7 @@ image:
     url:
     alt:
 skills: ['Python', 'Web Scraping', 'Raspberry Pi']
+videoLink:
 links: []
 linkTitles: []
 linkTypes: []

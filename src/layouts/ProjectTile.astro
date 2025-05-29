@@ -3,51 +3,58 @@ import '../styles/global.css'
 import AcademicIcon from '../icons/AcademicIcon.astro'
 import PersonalIcon from '../icons/PersonalIcon.astro'
 import WorkIcon from '../icons/WorkIcon.astro'
+import PlayIcon from '../icons/PlayIcon.astro'
 
 
 export interface Props {
   type: string;
   affiliation: string;
   title: string;
+  videoLink?: string;
 }
 
-const { type, affiliation, title } = Astro.props as Props;
+const { type, affiliation, title, videoLink="" } = Astro.props as Props;
 ---
 
 
-
-<div class="card-layout">
-    <div class="card-layout__item">
-        <div class="tile-top" style="display:flex; justify-content: space-between">
-            <small>{type=='academic project'?<AcademicIcon/>:(type=='work project'?<WorkIcon/>:<PersonalIcon/>)}{type}</small>
-            <small>{affiliation}</small>
-             
+<div class="card">
+    <div style="display:flex; justify-content: space-between">
+        <div class="tile-top">{type=='academic project'?<AcademicIcon/>:(type=='work project'?<WorkIcon/>:<PersonalIcon/>)} {type}</div>
+        <div class="tile-top">{affiliation}</div>
+            
         </div>
-            <h2>
-                {title}
-            </h2>
+    <div class="card-content">
+        <h2>
+            {title}
+        </h2>
         <p class="card-description">
             <slot/>
         </p>
+        <a href={videoLink} class="card-link"><PlayIcon/> Watch video</a>
     </div>
 </div>
 
 <style>
-    .card-layout{
-        display:flex;
-        margin-left: -0.25rem;
-        margin-right: -0.25rem;
-        outline: 2px solid var(--color3);
+    .card{
+        padding: 5px 10px;
+        
     }
-    .card-layout__item{
-        flex-basis: 50%;
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
+    .card-content{
+        padding: 6% 4% 2% 4%;
         
     }
     .card-description{
         font-family: "Chakra";
         color: var(--color4Light);
+    }
+
+    .tile-top{
+        color:var(--color4Light);
+        font-family: "Chakra";
+    }
+
+    .card-link{
+        color=var(--color4);
     }
 </style>
 

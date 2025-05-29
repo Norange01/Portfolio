@@ -6,6 +6,7 @@ image:
     url:
     alt:
 skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
+videoLink:
 links: []
 linkTitles: []
 linkTypes: []

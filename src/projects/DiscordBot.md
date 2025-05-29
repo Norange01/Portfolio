@@ -6,6 +6,7 @@ image:
     url:
     alt:
 skills: ['Python', 'Raspberry Pi']
+videoLink:
 links: []
 linkTitles: []
 linkTypes: []

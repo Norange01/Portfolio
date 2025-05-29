@@ -6,6 +6,7 @@ image:
     url:
     alt:
 skills: ['Unity Game Engine', 'UI/UX', 'C#', 'Algorithm Development']
+videoLink:
 links: []
 linkTitles: []
 linkTypes: []
