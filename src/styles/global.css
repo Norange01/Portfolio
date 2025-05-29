@@ -4,6 +4,7 @@
   --color3: #4B5461;
   --color4Dark: #428073;
   --color4: #1DFD5F;
+  --color4Light: #b7d8c1;
   --color5: #ffffff;
 }
 
@@ -58,6 +59,14 @@
 @font-face {
   font-family: 'MentorFont';
   src: url('/fonts/Lobster/Lobster-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Chakra';
+  src: url('/fonts/Chakra_Petch/ChakraPetch-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css'
+import AcademicIcon from '../icons/AcademicIcon.astro'
+import PersonalIcon from '../icons/PersonalIcon.astro'
+import WorkIcon from '../icons/WorkIcon.astro'
+
 
 export interface Props {
   type: string;
@@ -15,16 +19,17 @@ const { type, affiliation, title } = Astro.props as Props;
 <div class="card-layout">
     <div class="card-layout__item">
         <div class="tile-top" style="display:flex; justify-content: space-between">
-            <small>{type}</small>
+            <small>{type=='academic project'?<AcademicIcon/>:(type=='work project'?<WorkIcon/>:<PersonalIcon/>)}{type}</small>
             <small>{affiliation}</small>
              
         </div>
             <h2>
                 {title}
             </h2>
-        <slot/>
+        <p class="card-description">
+            <slot/>
+        </p>
     </div>
-
 </div>
 
 <style>
@@ -39,6 +44,10 @@ const { type, affiliation, title } = Astro.props as Props;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
         
+    }
+    .card-description{
+        font-family: "Chakra";
+        color: var(--color4Light);
     }
 </style>
 
