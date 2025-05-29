@@ -7,6 +7,7 @@ image:
     alt:
 skills: ['Unity Game Engine', 'UI/UX', 'C#', 'Algorithm Development']
 videoLink: "https://youtu.be/vXzRhPgN0zE?si=nEk2alS5UR1XK7-D"
+github: ""
 links: []
 linkTitles: []
 linkTypes: []

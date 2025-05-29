@@ -7,6 +7,7 @@ image:
     alt:
 skills: ['Python', 'Web Scraping', 'Raspberry Pi']
 videoLink: ""
+github: "https://github.com/Norange01/WeatherFetcher"
 links: []
 linkTitles: []
 linkTypes: []

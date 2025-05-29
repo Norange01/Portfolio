@@ -7,6 +7,7 @@ image:
     alt:
 skills: ['UI/UX', 'Python', 'Algorithm Development']
 videoLink: ""
+github: "https://github.com/Norange01/FriendshipBraceletSolver"
 links: []
 linkTitles: []
 linkTypes: []

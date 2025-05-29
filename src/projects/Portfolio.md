@@ -7,8 +7,9 @@ image:
     alt:
 skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
 videoLink: ""
+github: "https://github.com/Norange01/Portfolio"
 links: []
 linkTitles: []
 linkTypes: []
-description:
+description: You are here! Used Javascript and CSS for the first time to create my very own portfolio.
 ---

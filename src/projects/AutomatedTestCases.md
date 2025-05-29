@@ -7,6 +7,7 @@ image:
     alt:
 skills: ['Java', 'Web Scraping']
 videoLink: ""
+github: ""
 links: []
 linkTitles: []
 linkTypes: []

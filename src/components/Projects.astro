@@ -4,31 +4,43 @@ import '../styles/global.css'
 const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
 ---
 <div class="masonry-grid">
-{files.map(
-    (proj:any) => 
-        <div class="masonry-grid__item">
-            <ProjectTile 
-                title={proj.frontmatter.title} 
-                type={proj.frontmatter.type} 
-                affiliation={proj.frontmatter.affiliation}
-                videoLink={proj.frontmatter.videoLink}>{proj.frontmatter.description}</ProjectTile>
-        </div> 
+    {files.map(
+        (proj:any) => 
+            <div class="masonry-grid__item">
+                <ProjectTile 
+                    title={proj.frontmatter.title} 
+                    type={proj.frontmatter.type} 
+                    affiliation={proj.frontmatter.affiliation}
+                    videoLink={proj.frontmatter.videoLink}
+                    githubLink={proj.frontmatter.github}>{proj.frontmatter.description}</ProjectTile>
+            </div> 
     )}
 </div>
 <style>
     .masonry-grid {
-        /* It is split into 3 columns */
+    column-count: 1;
+    column-gap: 0.5rem;
+    width: 70%;
+    }
+
+    @media (min-width: 600px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+    }
+
+    @media (min-width: 900px) {
+    .masonry-grid {
         column-count: 3;
-        /* The space between columns */
-        column-gap: 0.5rem;
+    }
     }
 
     .masonry-grid__item {
-        /* Prevent a column from breaking into multiple columns */
-        break-inside: avoid;
-        margin-bottom: 0.5rem;
-        outline: 2px outset var(--color4Light);
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+    outline: 2px outset var(--color4Light);
     }
+
 
 </style>
 

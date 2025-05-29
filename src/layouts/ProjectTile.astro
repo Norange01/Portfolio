@@ -4,6 +4,7 @@ import AcademicIcon from '../icons/AcademicIcon.astro'
 import PersonalIcon from '../icons/PersonalIcon.astro'
 import WorkIcon from '../icons/WorkIcon.astro'
 import PlayIcon from '../icons/PlayIcon.astro'
+import GithubIcon from '../icons/GithubIcon.astro'
 
 
 export interface Props {
@@ -11,15 +12,17 @@ export interface Props {
   affiliation: string;
   title: string;
   videoLink?: string;
+  githubLink?: string;
 }
 
-const { type, affiliation, title, videoLink="" } = Astro.props as Props;
+const { type, affiliation, title, videoLink="" , githubLink=""} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
 let videoIsLocal = true;
 if(videoLink.includes("http")){
     videoIsLocal=false;
 }
+let githubAvailable=githubLink!=="";
 
 ---
 
@@ -48,6 +51,9 @@ if(videoLink.includes("http")){
                     <PlayIcon /> WATCH VIDEO
                 </a>
             ))}
+        {githubAvailable && (
+            <a href={githubLink} class="card-link" target="_blank" rel="noopener noreferrer"><GithubIcon/>  GITHUB REPO</a>
+            )}
     </div>
 </div>
 
@@ -74,6 +80,7 @@ if(videoLink.includes("http")){
         color:var(--color4);
         font-family: "Chakra";
         display:flex;
+        /*outline: 2px solid var(--color3)*/
     }
 
     .card-link:hover{

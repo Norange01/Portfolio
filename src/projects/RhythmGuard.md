@@ -7,6 +7,7 @@ image:
     alt:
 skills: ['AI', 'Python', 'C++', 'Arduino', 'Data Processing and Analysis', 'Signal Processing']
 videoLink: ""
+github: "https://github.com/sarah-alabdulrazzak/RhythmGuard"
 links: []
 linkTitles: []
 linkTypes: []
