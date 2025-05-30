@@ -5,6 +5,7 @@ import PersonalIcon from '../icons/PersonalIcon.astro'
 import WorkIcon from '../icons/WorkIcon.astro'
 import PlayIcon from '../icons/PlayIcon.astro'
 import GithubIcon from '../icons/GithubIcon.astro'
+import Tag from '../components/Tag.astro'
 
 
 export interface Props {
@@ -13,9 +14,10 @@ export interface Props {
   title: string;
   videoLink?: string;
   githubLink?: string;
+  tags: Array<string>;
 }
 
-const { type, affiliation, title, videoLink="" , githubLink=""} = Astro.props as Props;
+const { type, affiliation, title, videoLink="" , githubLink="", tags} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
 let videoIsLocal = true;
@@ -54,6 +56,12 @@ let githubAvailable=githubLink!=="";
         {githubAvailable && (
             <a href={githubLink} class="card-link" target="_blank" rel="noopener noreferrer"><GithubIcon/>  GITHUB REPO</a>
             )}
+
+        <div style="margin-top:20px">
+            {tags.map((tag) => (
+                <Tag tagName={tag}/>
+            ))}
+        </div>
     </div>
 </div>
 

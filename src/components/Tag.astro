@@ -1,0 +1,43 @@
+---
+import '../styles/global.css'
+
+export interface Props {
+  tagName: string;
+}
+
+const {tagName} = Astro.props as Props;
+
+---
+
+<div class="chip">
+    <!-- Content -->
+    <div class="chip__content">{tagName}</div>
+</div>
+
+<style>
+    .chip {
+        /* Center the content */
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        margin: 2px 1px;
+
+        /* Background color */
+        /*background-color: var(--color2);*/
+        outline: 1px solid var(--color3);
+
+        /* Rounded border */
+        border-radius: 9999px;
+
+        /* Spacing */
+        padding: 0.25rem 0.5rem;
+    }
+
+    .chip__content {
+        margin-right: 0.25rem;
+        font-family:"Chakra";
+        font-size: 14px;
+        color: var(--color4Light);
+    }
+
+</style>
