@@ -9,7 +9,7 @@ import "../styles/global.css"
 <!-- The fake square -->
 <div class="custom-checkbox-button__square">
     <!-- The inner square -->
-    <div class="custom-checkbox-button__checkbox custom-checkbox-button__checkbox--selected"></div>
+    <div class="custom-checkbox-button__checkbox "></div> <!-- custom-checkbox-button__checkbox--selected-->
 </div>
 <p>
     <slot/>
@@ -35,15 +35,16 @@ import "../styles/global.css"
 
     .custom-checkbox-button__square {
         border: 2px solid var(--color4Light);
+        /*background-color: var(--color4Dark);*/
         border-radius: 0.25rem;
 
         /* Spacing */
         margin-right: 0.5rem;
-        padding: 0.25rem;
+        padding: 0.1rem;
     }
 
     .custom-checkbox-button__checkbox {
-        background-color: var(--color4Dark);
+        
         border-radius: 0.12rem;
         height: 0.5rem;
         width: 0.5rem;
@@ -51,7 +52,8 @@ import "../styles/global.css"
 
     .custom-checkbox-button__checkbox--selected {
         /* For selected checkbox */
-        background-color: var(--color4);
+        background: radial-gradient(circle, var(--color4) 45%, var(--color4Dark) 60%, var(--color2) 90%);
+        
     }
 
     p{
