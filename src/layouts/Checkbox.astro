@@ -1,0 +1,61 @@
+---
+import "../styles/global.css"
+---
+
+<label class="custom-checkbox-button">
+<!-- The real checkbox -->
+<input type="checkbox" class="custom-checkbox-button__input" />
+
+<!-- The fake square -->
+<div class="custom-checkbox-button__square">
+    <!-- The inner square -->
+    <div class="custom-checkbox-button__checkbox custom-checkbox-button__checkbox--selected"></div>
+</div>
+<p>
+    <slot/>
+</p>
+    
+</label>
+
+<style>
+    .custom-checkbox-button {
+        /* Center the content horizontally */
+        align-items: center;
+        display: inline-flex;
+        min-width:49%;
+
+        /* Cursor */
+        cursor: pointer;
+    }
+
+    .custom-checkbox-button__input {
+        /* Hide it */
+        display: none;
+    }
+
+    .custom-checkbox-button__square {
+        border: 2px solid var(--color4Light);
+        border-radius: 0.25rem;
+
+        /* Spacing */
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+    }
+
+    .custom-checkbox-button__checkbox {
+        background-color: var(--color4Dark);
+        border-radius: 0.12rem;
+        height: 0.5rem;
+        width: 0.5rem;
+    }
+
+    .custom-checkbox-button__checkbox--selected {
+        /* For selected checkbox */
+        background-color: var(--color4);
+    }
+
+    p{
+        font-family: "Chakra";
+        color: var(--color4Light);
+    }
+</style>

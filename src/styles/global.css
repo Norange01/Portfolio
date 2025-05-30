@@ -134,6 +134,39 @@ p {
   fill: var(--color4);
 }
 
+.highlightable-button{
+    color:var(--color4);
+    font-family: "Chakra";
+    display:flex;
+    /*outline: 2px solid var(--color3)*/
+    background-color: var(--color2);
+    width:100%;
+}
+
+.highlightable-button:hover{
+    color:var(--color2);
+    background-color: var(--color4);
+    cursor:pointer;
+}
+
+.separator {
+    /* Content is centered horizontally */
+    align-items: center;
+    display: flex;
+
+    /* Used to set the position of text */
+    position: relative;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.separator__separator {
+    border-bottom: 1px solid var(--color3);
+    height: 1px;
+    width: 100%;
+}
+
 
 
 

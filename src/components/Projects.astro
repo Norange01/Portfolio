@@ -1,49 +1,118 @@
 ---
 import ProjectTile from "../layouts/ProjectTile.astro";
-import '../styles/global.css'
+import Checkbox from "../layouts/Checkbox.astro";
+import ClearIcon from "../icons/ClearIcon.astro";
+import '../styles/global.css';
+import LabeledSeparator from "../layouts/LabeledSeparator.astro";
+import Tag from "../layouts/Tag.astro";
 const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
+
+const allSkills = new Set();
+const allTypes = new Set();
+
+files.forEach(file => {
+  const skills = file.frontmatter.skills || [];
+  skills.forEach(skill => allSkills.add(skill));
+
+  const type = file.frontmatter.type || [];
+  allTypes.add(type);
+});
+
+const allSkillsArr = Array.from(allSkills);
+const allTypesArr = Array.from(allTypes);
+
 ---
-<div class="masonry-grid">
-    {files.map(
-        (proj:any) => 
-            <div class="masonry-grid__item">
-                <ProjectTile 
-                    title={proj.frontmatter.title} 
-                    type={proj.frontmatter.type} 
-                    affiliation={proj.frontmatter.affiliation}
-                    videoLink={proj.frontmatter.videoLink}
-                    githubLink={proj.frontmatter.github}
-                    tags={proj.frontmatter.skills}>{proj.frontmatter.description}</ProjectTile>
-                    
-            </div> 
-    )}
+<h1 style="text-align:center;">Projects</h1>
+<div class="sidebar">
+    <aside class="sidebar__sidebar">
+        <h2 style="text-align: center">Filters</h2>
+        <div class="filters">
+            <div class="skills-filter">
+                <LabeledSeparator>SKILLS:</LabeledSeparator>
+                {allSkillsArr.map((skill:any)=><Checkbox>{skill}</Checkbox>)}
+            </div>
+            <div class="types-filter" style="margin-top: 50px;">
+                <LabeledSeparator>TYPES:</LabeledSeparator>
+                {allTypesArr.map((type:any)=><Checkbox>{type}</Checkbox>)}
+            </div>
+            <div class="separator">
+                <div class="separator__separator"></div>
+            </div>
+            <button class="highlightable-button" style="border:none; font-size:16px;margin-top:20px">
+                <ClearIcon/> CLEAR ALL FILTERS
+            </button>
+            
+        </div>
+    </aside>
+    <div class="masonry-grid sidebar__main">
+        {files.map(
+            (proj:any) => 
+                <div class="masonry-grid__item">
+                    <ProjectTile 
+                        title={proj.frontmatter.title} 
+                        type={proj.frontmatter.type} 
+                        affiliation={proj.frontmatter.affiliation}
+                        videoLink={proj.frontmatter.videoLink}
+                        githubLink={proj.frontmatter.github}
+                        tags={proj.frontmatter.skills}>{proj.frontmatter.description}</ProjectTile>
+                        
+                </div> 
+        )}
+    </div>
 </div>
 <style>
     .masonry-grid {
     column-count: 1;
     column-gap: 0.5rem;
-    width: 70%;
-    margin: 2%;
-    }
-
-    @media (min-width: 750px) {
-    .masonry-grid {
-        column-count: 2;
-    }
-    }
-
-    @media (min-width: 1400px) {
-    .masonry-grid {
-        column-count: 3;
-    }
+    margin: 20px;
     }
 
     .masonry-grid__item {
-    break-inside: avoid;
-    margin-bottom: 0.5rem;
-    outline: 2px outset var(--color4Light);
+        break-inside: avoid;
+        margin-bottom: 0.5rem;
+        outline: 2px outset var(--color4Light);
     }
 
+    .sidebar {
+        display: flex;
+    }
+
+    .sidebar__sidebar {
+        width: 200px;
+        outline: 2px outset var(--color4Light);
+        margin: 20px 0px 20px 20px;
+        padding: 15px 10px 10px 10px;
+    }
+
+    .sidebar__main {
+        /* Take the remaining width */
+        flex: 1;
+
+        /* Make it scrollable */
+        /*overflow: auto;*/
+    }
+
+    .filters{
+        padding: 5%;
+    }
+
+    @media (min-width: 750px) {
+        .masonry-grid {
+            column-count: 2;
+        }
+        .sidebar__sidebar {
+            width: 25%;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .masonry-grid {
+            column-count: 3;
+        }
+        .sidebar__sidebar {
+            width: 20%;
+        }
+    }
 
 </style>
 

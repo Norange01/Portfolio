@@ -5,7 +5,7 @@ import PersonalIcon from '../icons/PersonalIcon.astro'
 import WorkIcon from '../icons/WorkIcon.astro'
 import PlayIcon from '../icons/PlayIcon.astro'
 import GithubIcon from '../icons/GithubIcon.astro'
-import Tag from '../components/Tag.astro'
+import Tag from '../layouts/Tag.astro'
 
 
 export interface Props {
@@ -44,26 +44,25 @@ let githubAvailable=githubLink!=="";
         </p>
         {videoAvailable && (
             !videoIsLocal && (
-                <a href={videoLink} class="card-link" target="_blank" rel="noopener noreferrer">
+                <a href={videoLink} class="highlightable-button" target="_blank" rel="noopener noreferrer">
                     <PlayIcon /> WATCH VIDEO
                 </a>
             ) 
             || videoIsLocal && ( /*PLACE HOLDER */
-                <a href={videoLink} class="card-link" target="_blank" rel="noopener noreferrer">
+                <a href={videoLink} class="highlightable-button" target="_blank" rel="noopener noreferrer">
                     <PlayIcon /> WATCH VIDEO
                 </a>
             ))}
         {githubAvailable && (
-            <a href={githubLink} class="card-link" target="_blank" rel="noopener noreferrer"><GithubIcon/>  GITHUB REPO</a>
+            <a href={githubLink} class="highlightable-button" target="_blank" rel="noopener noreferrer"><GithubIcon/>  GITHUB REPO</a>
             )}
         <div class="separator">
-            <!-- Separator line -->
             <div class="separator__separator"></div>
         </div>
 
         <div>
             {tags.map((tag) => (
-                <Tag tagName={tag}/>
+                <Tag>{tag}</Tag>
             ))}
         </div>
     </div>
@@ -87,18 +86,6 @@ let githubAvailable=githubLink!=="";
         color:var(--color4Light);
         font-family: "Chakra";
         font-size: 16px;
-    }
-
-    .card-link{
-        color:var(--color4);
-        font-family: "Chakra";
-        display:flex;
-        /*outline: 2px solid var(--color3)*/
-    }
-
-    .card-link:hover{
-        color:var(--color2);
-        background-color: var(--color4);
     }
 
     .separator {
