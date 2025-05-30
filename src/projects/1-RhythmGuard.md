@@ -5,7 +5,7 @@ affiliation: 'McMaster University'
 image:
     url:
     alt:
-skills: ['AI', 'Python', 'C++', 'Arduino', 'Data Processing and Analysis', 'Signal Processing']
+skills: ['AI', 'Python', 'C++', 'Arduino', 'Data Processing and Analysis', 'Signal Processing', 'Research', 'Writing']
 videoLink: ""
 github: "https://github.com/sarah-alabdulrazzak/RhythmGuard"
 links: []

@@ -21,15 +21,16 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     column-count: 1;
     column-gap: 0.5rem;
     width: 70%;
+    margin: 2%;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 750px) {
     .masonry-grid {
         column-count: 2;
     }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1400px) {
     .masonry-grid {
         column-count: 3;
     }
