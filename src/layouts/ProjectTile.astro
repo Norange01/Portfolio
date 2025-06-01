@@ -15,21 +15,18 @@ export interface Props {
   videoLink?: string;
   githubLink?: string;
   tags: Array<string>;
-  images: Array<{
-    url: string;
-    alt: string;
-  }>
+  images: Array<string>;
 }
 
 const { type, affiliation, title, videoLink="" , githubLink="", tags, images} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
+let numImages=images.length;
 let videoIsLocal = true;
 if(videoLink.includes("http")){
     videoIsLocal=false;
 }
 let githubAvailable=githubLink!=="";
-
 ---
 
 
@@ -46,7 +43,8 @@ let githubAvailable=githubLink!=="";
         <p class="card-description">
             <slot/>
         </p>
-        <img src={images[0].url} alt={images[0].alt} class="card-image"/>
+        {(numImages>0) && (images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"}/>)))}
+        
         {videoAvailable && (
             !videoIsLocal && (
                 <a href={videoLink} class="highlightable-button" target="_blank" rel="noopener noreferrer">
@@ -73,6 +71,25 @@ let githubAvailable=githubLink!=="";
     </div>
 </div>
 
+<script define:vars={{title}}>
+  let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 1000); // Change image every 2 seconds
+    }
+</script>
+
+
+
 <style>
     .card{
         padding: 5px 10px;
@@ -94,6 +111,7 @@ let githubAvailable=githubLink!=="";
     }
 
     .card-image{
+        max-height: 300px;
         max-width: 100%;
     }
 
