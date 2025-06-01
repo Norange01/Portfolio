@@ -2,9 +2,9 @@
 title: 'Palm Free: A Game for Improving Motor Skills of Post-stroke Patients'
 type: 'work project'
 affiliation: 'Palm Free'
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['Unity Game Engine','UI/UX','C#', 'Research']
 videoLink: ""
 github: ""

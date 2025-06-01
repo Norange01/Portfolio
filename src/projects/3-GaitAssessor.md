@@ -2,11 +2,11 @@
 title: 'Gait Assessor'
 type: 'academic project'
 affiliation: 'McMaster University'
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['C++', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'Signal Processing', 'Research']
-videoLink:  ""
+videoLink:  "https://www.youtube.com/watch?v=ocvgvfC_OX0"
 github: "https://github.com/Norange01/GaitAssessor"
 links: []
 linkTitles: []

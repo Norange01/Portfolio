@@ -2,9 +2,9 @@
 title: 'Online Portfolio'
 type: 'personal project'
 affiliation:
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
 videoLink: ""
 github: "https://github.com/Norange01/Portfolio"

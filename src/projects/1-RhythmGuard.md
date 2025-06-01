@@ -2,11 +2,11 @@
 title: 'RhythmGuard: Detecting Arrhythmia with TinyML'
 type: 'academic project'
 affiliation: 'McMaster University'
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['AI', 'Python', 'C++', 'Arduino', 'Data Processing and Analysis', 'Signal Processing', 'Research', 'Writing']
-videoLink: ""
+videoLink: "https://www.macvideo.ca/media/Rhythm+Guard+-+Computing+and+Software/1_rz2r6ijf"
 github: "https://github.com/sarah-alabdulrazzak/RhythmGuard"
 links: []
 linkTitles: []

@@ -2,9 +2,9 @@
 title: 'Ask Those Who Tried: A Guide to Choosing Your University Major'
 type: 'personal project'
 affiliation:
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['Writing', 'Research']
 videoLink: ""
 github: ""

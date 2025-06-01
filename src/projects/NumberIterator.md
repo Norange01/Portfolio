@@ -2,9 +2,9 @@
 title: 'Student Number Iterator'
 type: 'academic project'
 affiliation: 'McMaster University'
-image:
-    url:
-    alt:
+images:
+  - url: ""
+    alt: ""
 skills: ['Circuits']
 videoLink:  "https://youtu.be/th4inV366BM"
 github: ""

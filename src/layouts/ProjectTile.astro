@@ -15,9 +15,13 @@ export interface Props {
   videoLink?: string;
   githubLink?: string;
   tags: Array<string>;
+  images: Array<{
+    url: string;
+    alt: string;
+  }>
 }
 
-const { type, affiliation, title, videoLink="" , githubLink="", tags} = Astro.props as Props;
+const { type, affiliation, title, videoLink="" , githubLink="", tags, images} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
 let videoIsLocal = true;
@@ -42,6 +46,7 @@ let githubAvailable=githubLink!=="";
         <p class="card-description">
             <slot/>
         </p>
+        <img src={images[0].url} alt={images[0].alt} class="card-image"/>
         {videoAvailable && (
             !videoIsLocal && (
                 <a href={videoLink} class="highlightable-button" target="_blank" rel="noopener noreferrer">
@@ -88,23 +93,10 @@ let githubAvailable=githubLink!=="";
         font-size: 16px;
     }
 
-    .separator {
-        /* Content is centered horizontally */
-        align-items: center;
-        display: flex;
-
-        /* Used to set the position of text */
-        position: relative;
-
-        margin-top: 10px;
-        margin-bottom: 5px;
+    .card-image{
+        max-width: 100%;
     }
 
-    .separator__separator {
-        border-bottom: 1px solid var(--color3);
-        height: 1px;
-        width: 100%;
-    }
 
 </style>
 
