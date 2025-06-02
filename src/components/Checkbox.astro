@@ -1,8 +1,14 @@
 ---
 import "../styles/global.css"
+
+export interface Props {
+  text: string;  
+}
+
+const { text } = Astro.props as Props;
 ---
 
-<label class="custom-checkbox-button">
+<label class="custom-checkbox-button"  id={text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-checkbox"}>
 <!-- The real checkbox -->
 <input type="checkbox" class="custom-checkbox-button__input" />
 
@@ -12,10 +18,26 @@ import "../styles/global.css"
     <div class="custom-checkbox-button__checkbox "></div> <!-- custom-checkbox-button__checkbox--selected-->
 </div>
 <p>
-    <slot/>
+    {text}
 </p>
     
 </label>
+
+<script define:vars={{text}}>
+    let enabled=false;
+    let checkboxAndLabel = document.getElementById(text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-checkbox");
+    checkboxAndLabel.addEventListener("mousedown", toggle);
+    let checkbox = checkboxAndLabel.children[1].children[0];
+    function toggle(){
+        enabled=!enabled;
+        if(enabled){
+            checkbox.classList.add("custom-checkbox-button__checkbox--selected");
+        }
+        else{
+            checkbox.classList.remove("custom-checkbox-button__checkbox--selected");
+        }
+    }
+</script>
 
 <style>
     .custom-checkbox-button {

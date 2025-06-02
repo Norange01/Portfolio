@@ -1,6 +1,6 @@
 ---
 import ProjectTile from "../layouts/ProjectTile.astro";
-import Checkbox from "../layouts/Checkbox.astro";
+import Checkbox from "../components/Checkbox.astro";
 import ClearIcon from "../icons/ClearIcon.astro";
 import '../styles/global.css';
 import LabeledSeparator from "../layouts/LabeledSeparator.astro";
@@ -29,11 +29,11 @@ const allTypesArr = Array.from(allTypes);
         <div class="filters">
             <div class="skills-filter">
                 <LabeledSeparator>SKILLS:</LabeledSeparator>
-                {allSkillsArr.map((skill:any)=><Checkbox>{skill}</Checkbox>)}
+                {allSkillsArr.map((skill:any)=><Checkbox text={skill}/>)}
             </div>
             <div class="types-filter" style="margin-top: 100px;">
                 <LabeledSeparator>TYPES:</LabeledSeparator>
-                {allTypesArr.map((type:any)=><Checkbox>{type}</Checkbox>)}
+                {allTypesArr.map((type:any)=><Checkbox text={type}/>)}
             </div>
             <div class="separator">
                 <div class="separator__separator"></div>
