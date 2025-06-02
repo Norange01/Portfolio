@@ -47,7 +47,7 @@ const allTypesArr = Array.from(allTypes);
     <div class="masonry-grid sidebar__main">
         {files.map(
             (proj:any) => 
-                <div class="masonry-grid__item">
+                <div class={"masonry-grid__item "+proj.frontmatter.type.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+ proj.frontmatter.skills.map((skill:string)=>(" "+skill.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, ''))).join('')}>
                     <ProjectTile 
                         title={proj.frontmatter.title} 
                         type={proj.frontmatter.type} 
