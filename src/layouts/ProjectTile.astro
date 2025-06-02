@@ -27,10 +27,11 @@ if(videoLink.includes("http")){
     videoIsLocal=false;
 }
 let githubAvailable=githubLink!=="";
+let slideshowActive = true;
 ---
 
 
-<div class="card">
+<div class={"card "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-div"} >
     <div style="display:flex; justify-content: space-between">
         <div class="tile-top">{type=='academic project'?<AcademicIcon/>:(type=='work project'?<WorkIcon/>:<PersonalIcon/>)} {type}</div>
         <div class="tile-top">{affiliation}</div>
@@ -43,7 +44,10 @@ let githubAvailable=githubLink!=="";
         <p class="card-description">
             <slot/>
         </p>
-        {(numImages>0) && (images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"}/>)))}
+        {(numImages>0) && (
+            ((images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"}/>))))
+            
+            )}
         
         {videoAvailable && (
             !videoIsLocal && (
@@ -72,19 +76,51 @@ let githubAvailable=githubLink!=="";
 </div>
 
 <script define:vars={{title}}>
-  let slideIndex = 0;
+    let slideIndex = 0;
+    let intervalId;
+    let slides = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image");
+    const cardDiv = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-div")[0];
+    cardDiv.addEventListener('mouseover', activateSlides);
+    cardDiv.addEventListener('mouseleave', pauseSlides);
+    let slidesActive=false;
     showSlides();
 
-    function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+    function activateSlides(){
+        slidesActive=true;
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 1000); // Change image every 2 seconds
+    function pauseSlides(){
+        slidesActive=false;
+        if(slides.length>0){
+            clearTimeout(intervalId);
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex=0
+            slides[0].style.display = "block";
+            showSlides();
+        }
+    }
+
+    function showSlides() {
+        let i;
+        if(slides.length>0){
+            if(slidesActive){
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex >= slides.length) {slideIndex = 0}    
+                slides[slideIndex].style.display = "block";
+            }
+            else{
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex=0
+                slides[0].style.display = "block";
+            }
+        }
+        intervalId = setTimeout(showSlides, 1000);
     }
 </script>
 
