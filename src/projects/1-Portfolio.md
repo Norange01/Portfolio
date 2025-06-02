@@ -3,6 +3,7 @@ title: 'Online Portfolio'
 type: 'personal project'
 affiliation:
 images: []
+imageHeight: 300px
 skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
 videoLink: ""
 github: "https://github.com/Norange01/Portfolio"

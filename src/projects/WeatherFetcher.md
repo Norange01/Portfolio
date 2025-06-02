@@ -3,6 +3,7 @@ title: 'Weather Fetcher'
 type: 'personal project'
 affiliation:
 images: ["WeatherFetcher1","WeatherFetcher2"]
+imageHeight: 300px
 skills: ['Python', 'Web Scraping', 'Raspberry Pi']
 videoLink: ""
 github: "https://github.com/Norange01/WeatherFetcher"

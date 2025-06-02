@@ -3,6 +3,7 @@ title: 'Automated Web Test Cases'
 type: 'work project'
 affiliation: 'Muslim Association of Canada'
 images: []
+imageHeight: 300px
 skills: ['Java', 'Web Scraping']
 videoLink: ""
 github: ""

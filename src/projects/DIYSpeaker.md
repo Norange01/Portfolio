@@ -3,6 +3,7 @@ title: 'Paper Speaker Device'
 type: 'academic project'
 affiliation: 'McMaster University'
 images: ["DIYSpeaker1", "DIYSpeaker2", "DIYSpeaker3"]
+imageHeight: 250px
 skills: ['Circuits']
 videoLink:  "https://youtu.be/Y74YwZbzEB4"
 github: ""

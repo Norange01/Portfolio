@@ -16,9 +16,10 @@ export interface Props {
   githubLink?: string;
   tags: Array<string>;
   images: Array<string>;
+  imageHeight: string;    
 }
 
-const { type, affiliation, title, videoLink="" , githubLink="", tags, images} = Astro.props as Props;
+const { type, affiliation, title, videoLink="" , githubLink="", tags, images, imageHeight} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
 let numImages=images.length;
@@ -27,7 +28,6 @@ if(videoLink.includes("http")){
     videoIsLocal=false;
 }
 let githubAvailable=githubLink!=="";
-let slideshowActive = true;
 ---
 
 
@@ -45,7 +45,7 @@ let slideshowActive = true;
             <slot/>
         </p>
         {(numImages>0) && (
-            ((images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"}/>))))
+            ((images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"} style={"object-fit: cover; width: auto; max-width: 100%; height: "+imageHeight}/>))))
             
             )}
         
@@ -126,7 +126,7 @@ let slideshowActive = true;
 
 
 
-<style>
+<style define:vars{{imageHeight}}>
     .card{
         padding: 5px 10px;
         
@@ -147,8 +147,6 @@ let slideshowActive = true;
     }
 
     .card-image{
-        max-height: 300px;
-        max-width: 100%;
         margin-top: 10px;
         margin-bottom: 10px;
     }
