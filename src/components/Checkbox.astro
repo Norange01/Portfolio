@@ -6,20 +6,27 @@ export interface Props {
 }
 
 const { text } = Astro.props as Props;
+let adjustedText = text;
+if(text=="CS"){
+    adjustedText="C#"
+}
+else if(text=="CPP"){
+    adjustedText="C++"
+}
 ---
 
 <label class="custom-checkbox-button"  id={text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-checkbox"}>
-<!-- The real checkbox -->
-<input type="checkbox" class="custom-checkbox-button__input" />
+    <!-- The real checkbox -->
+    <input type="checkbox" class="custom-checkbox-button__input" />
 
-<!-- The fake square -->
-<div class="custom-checkbox-button__square">
-    <!-- The inner square -->
-    <div class="custom-checkbox-button__checkbox "></div> <!-- custom-checkbox-button__checkbox--selected-->
-</div>
-<p>
-    {text}
-</p>
+    <!-- The fake square -->
+    <div class="custom-checkbox-button__square">
+        <!-- The inner square -->
+        <div class="custom-checkbox-button__checkbox "></div> <!-- custom-checkbox-button__checkbox--selected-->
+    </div>
+    <p>
+        {adjustedText}
+    </p>
     
 </label>
 

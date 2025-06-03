@@ -69,7 +69,7 @@ let githubAvailable=githubLink!=="";
 
         <div>
             {tags.map((tag) => (
-                <Tag>{tag}</Tag>
+                <Tag>{tag=="CPP"?"C++":(tag=="CS"?"C#":tag)}</Tag>
             ))}
         </div>
     </div>

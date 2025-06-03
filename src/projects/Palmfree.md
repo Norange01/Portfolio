@@ -4,7 +4,7 @@ type: 'work project'
 affiliation: 'Palm Free'
 images: []
 imageHeight: 300px
-skills: ['Unity Game Engine','UI/UX','C#', 'Research']
+skills: ['Unity Game Engine','UI/UX','CS', 'Research']
 videoLink: ""
 github: ""
 links: []
