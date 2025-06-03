@@ -31,18 +31,11 @@ else if(text=="CPP"){
 </label>
 
 <script define:vars={{text}}>
-    let enabled=false;
     let checkboxAndLabel = document.getElementById(text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-checkbox");
     checkboxAndLabel.addEventListener("mousedown", toggle);
     let checkbox = checkboxAndLabel.children[1].children[0];
     function toggle(){
-        enabled=!enabled;
-        if(enabled){
-            checkbox.classList.add("custom-checkbox-button__checkbox--selected");
-        }
-        else{
-            checkbox.classList.remove("custom-checkbox-button__checkbox--selected");
-        }
+        checkbox.classList.toggle("custom-checkbox-button__checkbox--selected");
     }
 </script>
 

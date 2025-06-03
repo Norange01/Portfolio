@@ -124,8 +124,9 @@ const allTypesArr = Array.from(allTypes);
 <script>
     let filtersDiv = document.getElementById("filters");
     let allProjects = document.getElementsByClassName("masonry-grid__item");
-    let selectedCheckboxes = document.getElementsByClassName("custom-checkbox-button__checkbox--selected");
+    //let selectedCheckboxes = document.getElementsByClassName("custom-checkbox-button__checkbox--selected");
     let clearButton = document.getElementById("clear-all-filters-button");
+
 
     filtersDiv?.addEventListener("mousedown", applyFilters);
     clearButton?.addEventListener("mousedown", resetFilters);
@@ -139,9 +140,9 @@ const allTypesArr = Array.from(allTypes);
     }
 
     function resetFilters(){
-        let selectedCheckboxes = document.getElementsByClassName("custom-checkbox-button__checkbox--selected");
-        for(let i=0; i<selectedCheckboxes.length; i++){
-            selectedCheckboxes[i].classList.remove("custom-checkbox-button__checkbox--selected");
+        let allCheckboxes =document.getElementsByClassName("custom-checkbox-button__checkbox");
+        for(let i=0; i<allCheckboxes.length; i++){
+            allCheckboxes[i].classList.remove("custom-checkbox-button__checkbox--selected");
         }
         showAll();
     }
