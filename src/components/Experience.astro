@@ -1,84 +1,175 @@
+---
+import '../styles/global.css';
+---
+
+
 <div class="timeline">
-    <!-- Left vertical line -->
-    <div class="timeline__line"></div>
-
-    <!-- The timeline items timeline -->
-    <div class="timeline__items">
-        <!-- Each timeline item -->
-        <div class="timeline__item">
-            <!-- The circle and title -->
-            <div class="timeline__top">
-                <!-- The circle -->
-                <div class="timeline__circle"></div>
-
-                <!-- The title -->
-                <div class="timeline__title">...</div>
-            </div>
-
-            <!-- The description -->
-            <div class="timeline__desc">...</div>
-        </div>
-
-        <!-- Repeat other items -->
-        ...
+  <div class="outer">
+    <div class="card">
+      <div class="info">
+        <h3 class="timeline-card-title">Title 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
     </div>
+    <div class="card">
+      <div class="info">
+        <h3 class="timeline-card-title">Title 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3 class="timeline-card-title">Title 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3 class="timeline-card-title">Title 4</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3 class="timeline-card-title">Title 5</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+    </div>
+  </div>
 </div>
 
+
+
 <style>
-    .timeline {
-        /* Used to position the left vertical line */
-        position: relative;
-    }
 
-    .timeline__line {
-        /* Border */
-        border-right: 2px solid #d1d5db;
 
-        /* Positioned at the left */
-        left: 0.75rem;
-        position: absolute;
-        top: 0px;
+* {
+  margin: 0;
+  padding: 0;
+}
 
-        /* Take full height */
-        height: 100%;
-    }
 
-    .timeline__items {
-        /* Reset styles */
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-    }
+/* Timeline Container */
+.timeline {
+  background: var(var(--color2));
+  margin: 20px auto;
+  padding: 20px;
+  background: var(var(--color1));
+  display: flex;
+  justify-content: center;
+}
 
-    .timeline__item {
-        margin-bottom: 8px;
-    }
+p {
+    color: var(--color4Light);
+    font-family: "Chakra";
+}
 
-    .timeline__top {
-        /* Center the content horizontally */
-        align-items: center;
-        display: flex;
-    }
+/* Card container */
+.card {
+  position: relative;
+  max-width: 400px;
+}
 
-    .timeline__circle {
-        /* Rounded border */
-        background-color: #d1d5db;
-        border-radius: 9999px;
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  border: solid var(--color4);
+}
 
-        /* Size */
-        height: 1.5rem;
-        width: 1.5rem;
-    }
+/* Setting the border of top, bottom, left */
+.card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
 
-    .timeline__title {
-        /* Take available width */
-        flex: 1;
-        margin-left: 0.5rem;
-    }
+/* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+@media only screen and (max-width: 400px) {
+  .card:nth-child(odd)::before {
+    top: -5px;
+    bottom: -5px;
+  }
+}
 
-    .timeline__desc {
-        /* Make it align with the title */
-        margin-left: 2rem;
-    }
+/* Setting the border of top, bottom, right */
+.card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  background: var(--color1);
+  color: gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Title of the card */
+.timeline-card-title {
+  color: var(--color4);
+  position: relative;
+  font-family: "Doto";
+}
+
+/* Timeline dot  */
+.title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 999px;
+  border: 3px solid var(--color4);
+}
+
+/* text right if the card is even  */
+.card:nth-child(even) > .info > .title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.card:nth-child(odd) > .info > .title::before {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.card:nth-child(even) > .info > .title::before {
+  right: -45px;
+}
 
 </style>
