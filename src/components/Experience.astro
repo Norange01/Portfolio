@@ -1,42 +1,26 @@
 ---
 import '../styles/global.css';
+import experiencesJson from '../components/experience.json';
 ---
 
+<h1 style="text-align: center;">Experience</h1>
 
 <div class="timeline">
   <div class="outer">
+    {experiencesJson.map(expObj => (
     <div class="card">
+      <p class="card-date">{expObj.date}</p>
+      <p>{expObj.affiliation}</p>
       <div class="info">
-        <h3 class="timeline-card-title">Title 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <h3 class="title">{expObj.title}</h3>
+        <p>{expObj.description}</p>
       </div>
     </div>
-    <div class="card">
-      <div class="info">
-        <h3 class="timeline-card-title">Title 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="info">
-        <h3 class="timeline-card-title">Title 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="info">
-        <h3 class="timeline-card-title">Title 4</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="info">
-        <h3 class="timeline-card-title">Title 5</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-      </div>
-    </div>
+  ))}
   </div>
 </div>
+
+
 
 
 
@@ -48,20 +32,13 @@ import '../styles/global.css';
   padding: 0;
 }
 
-
 /* Timeline Container */
 .timeline {
-  background: var(var(--color2));
+  background: var(--color2);
   margin: 20px auto;
   padding: 20px;
-  background: var(var(--color1));
-  display: flex;
-  justify-content: center;
-}
-
-p {
-    color: var(--color4Light);
-    font-family: "Chakra";
+  display:flex;
+  justify-content:center;
 }
 
 /* Card container */
@@ -133,14 +110,19 @@ p {
 .info {
   display: flex;
   flex-direction: column;
-  background: var(--color1);
+  background: black;
   color: gray;
   border-radius: 10px;
   padding: 10px;
 }
 
+p {
+  color: var(--color4Light);
+  font-family: "Chakra";
+}
+
 /* Title of the card */
-.timeline-card-title {
+.title {
   color: var(--color4);
   position: relative;
   font-family: "Doto";
@@ -152,7 +134,7 @@ p {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: white;
+  background: var(--color5);
   border-radius: 999px;
   border: 3px solid var(--color4);
 }
