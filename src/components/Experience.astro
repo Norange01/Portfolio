@@ -9,29 +9,27 @@ const casualImages = await Astro.glob("../casual_images/*").then(files => {
 
 <h1 style="text-align: center;">Experience and Education</h1>
 
-<section id="experience-and-education-section">
-  <div id="drifting-images">
-    {casualImages.map(casualImage => <image src={casualImage.src} class="drifting-image"/>)}
-  </div>
+<div id="drifting-images">
+  {casualImages.map(casualImage => <image src={casualImage.src} class="drifting-image"/>)}
+</div>
 
-  <div class="timeline">
-    <div class="outer">
-      {experiencesJson.map(expObj => (
-      <div class="card">
-        <div class="card-date-wrapper">
-          <p class="card-date">{expObj.date}</p>
-        </div>
-        <p>{expObj.affiliation}</p>
-        <div class="info">
-          <h3 class="title">{expObj.title}</h3>
-          <p>{expObj.description}</p>
-        </div>
+<div class="timeline">
+  <div class="outer">
+    {experiencesJson.map(expObj => (
+    <div class="card">
+      <div class="card-date-wrapper">
+        <p class="card-date">{expObj.date}</p>
       </div>
-
-    ))}
+      <p>{expObj.affiliation}</p>
+      <div class="info">
+        <h3 class="title">{expObj.title}</h3>
+        <p>{expObj.description}</p>
+      </div>
     </div>
+
+  ))}
   </div>
-</section>
+</div>
 
 <style>
 * {
@@ -46,7 +44,6 @@ const casualImages = await Astro.glob("../casual_images/*").then(files => {
   padding: 20px;
   display:flex;
   justify-content:center;
-  z-index: 0;
 }
 
 /* Card container */
@@ -193,8 +190,13 @@ p {
 }
 
 .drifting-image {
-  max-width: 300px;
+  max-width: 200px;
   z-index: 3;
+  
+}
+
+#drifting-images {
+  overflow: hidden;
 }
 
 
@@ -204,17 +206,23 @@ p {
 <script>
   const images = document.getElementsByClassName('drifting-image');
 
+  let multipliers = [];
+
+  for(let i=0; i<images.length; i++){
+    multipliers.push((Math.floor(Math.random()*10)/20)+0.1);
+    images[i].style.zIndex = i;
+    images[i].style.left = `${Math.random() * 80 + 10}%`; // Random horizontal position
+
+  }
+
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+    const scrollY = window.scrollY - 2000;
 
     // Example: Translate element horizontally based on scroll
-    
     for(let i=0; i<images.length; i++){
-      let translateX = scrollY * (Math.random()*0.01); // Adjust the multiplier for desired effect
-      images[i].style.transform = `translateX(${translateX}px)`;
-      images[i].style.zIndex = Math.floor(i+1);
+      const translateY = scrollY * multipliers[i]; // Adjust the multiplier for desired effect
+      images[i].style.transform = `translateY(${translateY}px)`;
     }
-  
   });
 
 </script>
