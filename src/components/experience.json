@@ -2,31 +2,31 @@
     {
         "title": "Graduated Mechatronics Engineering and Biomedical Engineering (McMaster University)",
         "affiliation": "McMaster University",
-        "date": "Jun 2025",
+        "date": "JUN 2025",
         "description": "Finished a 5 year B.Eng.BME program at McMaster University in which I studied all concepts of pure mechatronics engineering while taking biomedical engineering and health sciences courses. I participated in multiple clubs and activities, and mentored in SRHacks, DeltaHacks, and volunteered in McMaster Design League and Ontario Engineering Competition."
     },
     {
         "title": "Programming for Mechatronics Teaching Assistant",
         "affiliation": "McMaster University",
-        "date": "Jan 2025",
+        "date": "JAN 2025",
         "description": "Delivered weekly tutorials on data structures and algorithms, helped improve and mark assignments, as well as helped students understand, troubleshoot, and debug."
     },
     {
         "title": "Research Assistant",
         "affiliation": "W Booth School of Engineering Practice and Technology, McMaster University",
-        "date": "May 2024",
+        "date": "MAY 2024",
         "description": "I worked in McMaster's W Booth School of Engineering Practice and Technology and developed an algorithm that ranks CAR T-cell therapy targets on the basis of predicted efficacy for autoimmune diseases using single cell RNA sequence data. As soon as I started, I started learning machine learning from scratch, and was able to produce an algorithm at the end that Scleroderma Canada invited me to give a short presentation on for World Scleroderma Day."
     },
     {
         "title": "Math and Physics Tutor",
         "affiliation": "Self-Employed",
-        "date": "Sep 2023",
+        "date": "SEP 2023",
         "description": "Tutored students between grades 6 and 12. Offered 125 tutoring sessions in the 2023-2024 school year. Some students came back for the 2024-2025 school year, and multiple students came through referrals."
     },
     {
         "title": "Web Developer and Tester",
         "affiliation": "Muslim Association of Canada",
-        "date": "Jul 2023",
+        "date": "JUL 2023",
         "description": "Working in Muslim Association of Canada's web development team, I facilitated routine testing for a student information system platform by creating 28 automated test cases with Java and Selenium and found over 20 bugs, some of which were high priority. I also wrote a 20 page comprehensive user documentation with SharePoint for future platform users, testers, and developers, also including an Entity Relationship Diagram (ERD)."
     }
 ]

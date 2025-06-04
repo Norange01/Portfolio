@@ -2,16 +2,15 @@
 import '../styles/global.css';
 import experiencesJson from '../components/experience.json';
 //const casualImages = import.meta.glob('../casual_images/*.jpg', {eager: true});
-const casualImages = await Astro.glob("../casual_images/*").then(files => {
-  return files.map(file => file.default);
-});
+const casualImages = Object.values(import.meta.glob("../casual_images/*.jpg", {eager: true}));
+
 ---
 
-<h1 style="text-align: center;">Experience and Education</h1>
+<h1 id="experience-header" style="text-align: center;">Experience and Education</h1>
 
 <div class="timeline-wrapper">
   <div class="drifting-images left-images">
-    {casualImages.slice(0, casualImages.length / 2).map(img => (
+    {casualImages.map(img => (
       <img src={img.src} class="drifting-image" />
     ))}
   </div>
@@ -34,7 +33,7 @@ const casualImages = await Astro.glob("../casual_images/*").then(files => {
     </div>
   </div>
     <div class="drifting-images right-images">
-    {casualImages.slice(casualImages.length / 2).map(img => (
+    {casualImages.map(img => (
       <img src={img.src} class="drifting-image" />
     ))}
   </div>
@@ -187,7 +186,7 @@ p {
 }
 
 .card-date{
-  font-family: "Chakra";
+  font-family: "Oswald";
   font-size: 40px;
   color: transparent;
   background-clip: text;
@@ -216,6 +215,7 @@ p {
   max-width: 150px;
   z-index: 1;
   pointer-events: none;
+  outline: 3px double var(--color5);
 }
 
 #drifting-images {
@@ -229,6 +229,7 @@ p {
 .timeline-wrapper{
   justify-content: space-around;
   display:inline-flex;
+  overflow: hidden;
 }
 
 
@@ -237,18 +238,32 @@ p {
 
 <script>
   const images = document.getElementsByClassName('drifting-image');
+  let rect = document.getElementById("experience-header").getBoundingClientRect();
+  let deadband=rect.bottom;
+  console.debug(deadband);
+
 
   let multipliers = [];
 
   for(let i=0; i<images.length; i++){
-    multipliers.push(-((Math.floor(Math.random()*10)/20))+0.1);
+    multipliers.push(-((Math.floor(Math.random()*10)/15))+0.2);
     images[i].style.zIndex = i;
     images[i].style.left = `${Math.random() * 80 + 10}%`; // Random horizontal position
 
   }
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY - 2000;
+    
+
+    let scrollY = window.scrollY;
+    if(scrollY>deadband){
+      scrollY=scrollY-deadband;
+    }
+    else{
+      scrollY=0;
+    }
+
+    console.debug(scrollY);
 
     // Example: Translate element horizontally based on scroll
     for(let i=0; i<images.length; i++){
