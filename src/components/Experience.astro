@@ -241,7 +241,7 @@ p {
   let multipliers = [];
 
   for(let i=0; i<images.length; i++){
-    multipliers.push((Math.floor(Math.random()*10)/20)+0.1);
+    multipliers.push(-((Math.floor(Math.random()*10)/20))+0.1);
     images[i].style.zIndex = i;
     images[i].style.left = `${Math.random() * 80 + 10}%`; // Random horizontal position
 
