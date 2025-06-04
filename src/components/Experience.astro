@@ -3,26 +3,25 @@ import '../styles/global.css';
 import experiencesJson from '../components/experience.json';
 ---
 
-<h1 style="text-align: center;">Experience</h1>
+<h1 style="text-align: center;">Experience and Education</h1>
 
 <div class="timeline">
   <div class="outer">
     {experiencesJson.map(expObj => (
     <div class="card">
-      <p class="card-date">{expObj.date}</p>
+      <div class="card-date-wrapper">
+        <p class="card-date">{expObj.date}</p>
+      </div>
       <p>{expObj.affiliation}</p>
       <div class="info">
         <h3 class="title">{expObj.title}</h3>
         <p>{expObj.description}</p>
       </div>
     </div>
+
   ))}
   </div>
 </div>
-
-
-
-
 
 <style>
 
@@ -112,7 +111,7 @@ import experiencesJson from '../components/experience.json';
   flex-direction: column;
   background: black;
   color: gray;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 10px;
 }
 
@@ -153,5 +152,36 @@ p {
 .card:nth-child(even) > .info > .title::before {
   right: -45px;
 }
+
+.card-date-wrapper {
+  position: absolute;
+  top: 10px;
+}
+
+.card:nth-child(odd) .card-date-wrapper {
+  right: calc(100% + 20px); /* date to the left of the left dot */
+  text-align: right;
+}
+
+.card:nth-child(even) .card-date-wrapper {
+  left: calc(100% + 20px); /* date to the right of the right dot */
+  text-align: left;
+}
+
+.card-date{
+  font-family: "Chakra";
+  font-size: 40px;
+  color: transparent;
+  background-clip: text;
+}
+
+.card:nth-child(even) .card-date-wrapper .card-date {
+  background-image: linear-gradient(90deg, var(--color4) 0%, var(--color4Dark) 60%);
+}
+
+.card:nth-child(odd) .card-date-wrapper .card-date {
+  background-image: linear-gradient(90deg, var(--color4Dark) 40%,  var(--color4) 100%);
+}
+
 
 </style>
