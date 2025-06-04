@@ -9,25 +9,34 @@ const casualImages = await Astro.glob("../casual_images/*").then(files => {
 
 <h1 style="text-align: center;">Experience and Education</h1>
 
-<div id="drifting-images">
-  {casualImages.map(casualImage => <image src={casualImage.src} class="drifting-image"/>)}
-</div>
+<div class="timeline-wrapper">
+  <div class="drifting-images left-images">
+    {casualImages.slice(0, casualImages.length / 2).map(img => (
+      <img src={img.src} class="drifting-image" />
+    ))}
+  </div>
 
-<div class="timeline">
-  <div class="outer">
-    {experiencesJson.map(expObj => (
-    <div class="card">
-      <div class="card-date-wrapper">
-        <p class="card-date">{expObj.date}</p>
+  <div class="timeline">
+    <div class="outer">
+      {experiencesJson.map(expObj => (
+      <div class="card">
+        <div class="card-date-wrapper">
+          <p class="card-date">{expObj.date}</p>
+        </div>
+        <p>{expObj.affiliation}</p>
+        <div class="info">
+          <h3 class="title">{expObj.title}</h3>
+          <p>{expObj.description}</p>
+        </div>
       </div>
-      <p>{expObj.affiliation}</p>
-      <div class="info">
-        <h3 class="title">{expObj.title}</h3>
-        <p>{expObj.description}</p>
-      </div>
+
+    ))}
     </div>
-
-  ))}
+  </div>
+    <div class="drifting-images right-images">
+    {casualImages.slice(casualImages.length / 2).map(img => (
+      <img src={img.src} class="drifting-image" />
+    ))}
   </div>
 </div>
 
@@ -44,6 +53,9 @@ const casualImages = await Astro.glob("../casual_images/*").then(files => {
   padding: 20px;
   display:flex;
   justify-content:center;
+  flex: 1;
+  position: relative;
+  z-index=2;
 }
 
 /* Card container */
@@ -189,14 +201,27 @@ p {
   background-image: linear-gradient(90deg, var(--color4Dark) 40%,  var(--color4) 100%);
 }
 
+.left-images {
+  justify-content: flex-end;
+}
+
+.right-images {
+  justify-content: flex-start;
+}
+
 .drifting-image {
-  max-width: 200px;
-  z-index: 3;
-  
+  position: absolute;
+  max-width: 150px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 #drifting-images {
+  width: 20vw;
+  position: relative;
   overflow: hidden;
+  height: 100%;
+  z-index: 1;
 }
 
 
