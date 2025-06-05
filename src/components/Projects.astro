@@ -22,7 +22,7 @@ const allSkillsArr = Array.from(allSkills);
 const allTypesArr = Array.from(allTypes);
 
 ---
-<h1>Projects</h1>
+<h1 id="projects-header">Projects</h1>
 <div class="sidebar">
     <aside class="sidebar__sidebar">
         <h2 style="text-align: center">Filters</h2>
@@ -171,15 +171,18 @@ const allTypesArr = Array.from(allTypes);
     }
 
     // Animations
+    const projectsHeader = document.getElementById("projects-header");
+    const cards = document.querySelectorAll('.masonry-grid__item');
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('appear');
+        entries.forEach(entry => {
+            if (entry.target === projectsHeader && entry.isIntersecting) {
+                cards.forEach(card => card.classList.add('appear'));
+                observer.disconnect(); // optional: stop observing once done
             }
         });
     });
-    const hiddenCards = document.querySelectorAll('.masonry-grid__item');
-    hiddenCards.forEach((el) => observer.observe(el));
+    observer.observe(projectsHeader);
 </script>
 
 
