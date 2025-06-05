@@ -8,13 +8,6 @@ const casualImages = Object.values(import.meta.glob("../casual_images/*.jpg", {e
 
 <h1 id="experience-header" style="text-align: center;">Experience and Education</h1>
 
-<div class="timeline-wrapper">
-  <div class="drifting-images left-images">
-    {casualImages.map(img => (
-      <img src={img.src} class="drifting-image" />
-    ))}
-  </div>
-
   <div class="timeline">
     <div class="outer">
       {experiencesJson.map(expObj => (
@@ -31,13 +24,6 @@ const casualImages = Object.values(import.meta.glob("../casual_images/*.jpg", {e
 
     ))}
     </div>
-  </div>
-    <div class="drifting-images right-images">
-    {casualImages.map(img => (
-      <img src={img.src} class="drifting-image" />
-    ))}
-  </div>
-</div>
 
 <style>
 * {
