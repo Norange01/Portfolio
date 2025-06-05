@@ -80,11 +80,47 @@
   font-display: swap;
 }
 
-body {
+html, body {
   margin: 0;
   color: var(--color5);
   background-color: var(--color2); /* dark purple-blue */
-  /*font-family: system-ui, sans-serif;*/
+  width: 100%;
+  height: 100%;
+
+
+}
+
+.disappear{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(100%);
+  transition: all 0.5s;
+
+}
+.appear{
+  opacity:1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media(prefers-reduced-motion){
+  .disappear {
+    transition: none;
+  }
+}
+
+
+#main-layout {
+  --odd-background: var(--color2);
+  --even-background: var(--color1);
+  --line-height: 1.5rem;
+  line-height: var(--line-height);
+  background: repeating-linear-gradient(
+      var(--odd-background),
+      var(--odd-background) var(--line-height),
+      var(--even-background) var(--line-height),
+      var(--even-background) calc(2 * var(--line-height))
+  );
 }
 
 h1 {

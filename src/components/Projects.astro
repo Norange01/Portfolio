@@ -47,7 +47,7 @@ const allTypesArr = Array.from(allTypes);
     <div class="masonry-grid sidebar__main">
         {files.map(
             (proj:any) => 
-                <div class={"masonry-grid__item "+proj.frontmatter.type.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+ proj.frontmatter.skills.map((skill:string)=>(" "+skill.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, ''))).join('')}>
+                <div class={"masonry-grid__item disappear "+proj.frontmatter.type.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+ proj.frontmatter.skills.map((skill:string)=>(" "+skill.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, ''))).join('')}>
                     <ProjectTile 
                         title={proj.frontmatter.title} 
                         type={proj.frontmatter.type} 
@@ -169,6 +169,17 @@ const allTypesArr = Array.from(allTypes);
 
 
     }
+
+    // Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('appear');
+            }
+        });
+    });
+    const hiddenCards = document.querySelectorAll('.masonry-grid__item');
+    hiddenCards.forEach((el) => observer.observe(el));
 </script>
 
 
