@@ -103,54 +103,6 @@ html, body {
   transform: translateY(0);
 }
 
-.disappear:nth-child(2){
-  transition-delay: 100ms;
-}
-
-.disappear:nth-child(3){
-  transition-delay: 200ms;
-}
-
-.disappear:nth-child(4){
-  transition-delay: 300ms;
-}
-
-.disappear:nth-child(5){
-  transition-delay: 400ms;
-}
-
-.disappear:nth-child(6){
-  transition-delay: 500ms;
-}
-
-.disappear:nth-child(7){
-  transition-delay: 600ms;
-}
-
-.disappear:nth-child(8){
-  transition-delay: 700ms;
-}
-
-.disappear:nth-child(9){
-  transition-delay: 800ms;
-}
-
-.disappear:nth-child(10){
-  transition-delay: 900ms;
-}
-
-.disappear:nth-child(11){
-  transition-delay: 1000ms;
-}
-
-.disappear:nth-child(12){
-  transition-delay: 1100ms;
-}
-
-.disappear:nth-child(13){
-  transition-delay: 1200ms;
-}
-
 @media(prefers-reduced-motion){
   .disappear {
     transition: none;

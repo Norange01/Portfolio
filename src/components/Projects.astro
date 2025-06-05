@@ -177,7 +177,12 @@ const allTypesArr = Array.from(allTypes);
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.target === projectsHeader && entry.isIntersecting) {
-                cards.forEach(card => card.classList.add('appear'));
+                cards.forEach((card, i) => {
+                    setTimeout(() => {
+                        card.classList.add('appear');
+                    }, i * 100); // 50ms delay between each
+                });
+
                 observer.disconnect(); // optional: stop observing once done
             }
         });
