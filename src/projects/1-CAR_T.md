@@ -2,7 +2,7 @@
 title: 'CAR T-Cell Therapy Target Discovery with Machine Learning'
 type: 'work project'
 affiliation: 'McMaster University'
-images: ["CAR_T1", "CAR_T2", "CAR_T3"]
+images: ["CAR_T3", "CAR_T2", "CAR_T1"]
 imageHeight: 320px
 skills: ['AI', 'Python', 'Data Processing and Analysis', 'Algorithm Development', 'Research', 'Writing']
 videoLink: "https://youtu.be/kxRlwKdBHxU?si=MhiLA_GCZWaomjjj&t=646"

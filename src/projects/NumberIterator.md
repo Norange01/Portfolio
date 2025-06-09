@@ -2,7 +2,7 @@
 title: 'Student Number Iterator'
 type: 'academic project'
 affiliation: 'McMaster University'
-images: ["NumberIterator1","NumberIterator2"]
+images: ["NumberIterator3","NumberIterator4","NumberIterator5","NumberIterator6","NumberIterator7","NumberIterator8","NumberIterator9","NumberIterator10","NumberIterator11","NumberIterator2","NumberIterator1"]
 imageHeight: 280px
 skills: ['Circuits']
 videoLink:  "https://youtu.be/th4inV366BM"
