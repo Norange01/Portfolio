@@ -7,7 +7,10 @@ import UpArrow from '../icons/UpArrow.astro';
 
  <style>
     #back-to-top-btn {
-        display: none; /* Hidden by default */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+
         position: fixed; /* Fixed/sticky position */
         top: 20px; /* Place the button at the bottom of the page */
         right: 30px; /* Place the button 30px from the right */
@@ -25,6 +28,11 @@ import UpArrow from '../icons/UpArrow.astro';
                      0 0 15px var(--color4);
     }
 
+    #back-to-top-btn.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
     #back-to-top-btn:hover {
         background-color: var(--color4); /* Add a dark-grey background on hover */
         color:var(--color4Dark);
@@ -40,9 +48,9 @@ import UpArrow from '../icons/UpArrow.astro';
 
     function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
+        mybutton.classList.add("show");
     } else {
-        mybutton.style.display = "none";
+        mybutton.classList.remove("show");
     }
     }
 
