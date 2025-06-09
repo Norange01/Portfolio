@@ -12,10 +12,10 @@ const casualImages = Object.values(import.meta.glob("../casual_images/*.jpg", {e
     <div class="outer">
       {experiencesJson.map(expObj => (
       <div class="timeline-card">
-        <div class="card-date-wrapper">
-          <p class="card-date">{expObj.date}</p>
+        <div class="timeline-card-date-wrapper">
+          <p class="timeline-card-date">{expObj.date}</p>
         </div>
-        <p>{expObj.affiliation}</p>
+        <p class="timeline-card-affiliation">{expObj.affiliation}</p>
         <div class="info">
           <h3 class="title">{expObj.title}</h3>
           <p>{expObj.description}</p>
@@ -40,13 +40,13 @@ const casualImages = Object.values(import.meta.glob("../casual_images/*.jpg", {e
   justify-content:center;
   flex: 1;
   position: relative;
-  z-index=2;
 }
 
 /* Card container */
 .timeline-card {
   position: relative;
   max-width: 400px;
+
 }
 
 /* setting padding based on even or odd */
@@ -161,56 +161,56 @@ p {
   top: 10px;
 }
 
-.timeline-card:nth-child(odd) .card-date-wrapper {
-  right: calc(100% + 20px); /* date to the left of the left dot */
+.timeline-card:nth-child(odd) .timeline-card-date-wrapper {
+  right: calc(102%); /* date to the left of the left dot */
   text-align: right;
+  display:block;
 }
 
-.timeline-card:nth-child(even) .card-date-wrapper {
-  left: calc(100% + 20px); /* date to the right of the right dot */
+.timeline-card:nth-child(even) .timeline-card-date-wrapper {
+  left: calc(102% ); /* date to the right of the right dot */
   text-align: left;
-}
+  display:block;
+} 
 
-.card-date{
+
+.timeline-card-date{
   font-family: "Oswald";
-  font-size: 40px;
-  color: transparent;
-  background-clip: text;
+  color: var(--color4);
 }
 
-.timeline-card:nth-child(even) .card-date-wrapper .card-date {
-  background-image: linear-gradient(90deg, var(--color4) 0%, var(--color4Dark) 60%);
+@media (min-width: 700px){
+ .timeline-card:nth-child(odd) .timeline-card-date-wrapper {
+    right: calc(100% + 20px); /* date to the left of the left dot */
+    text-align: right;
+  }
+
+  .timeline-card:nth-child(even) .timeline-card-date-wrapper {
+    left: calc(100% + 20px); /* date to the right of the right dot */
+    text-align: left;
+  } 
+
+  .timeline-card:nth-child(even) .timeline-card-date-wrapper .timeline-card-date {
+    background-image: linear-gradient(90deg, var(--color4) 0%, var(--color4Dark) 60%);
+  }
+
+  .timeline-card:nth-child(odd) .timeline-card-date-wrapper .timeline-card-date {
+    background-image: linear-gradient(90deg, var(--color4Dark) 40%,  var(--color4) 100%);
+  }
+
+  .timeline-card-date{
+    font-family: "Oswald";
+    font-size: 40px;
+    color: transparent;
+    background-clip: text;
+  }
 }
 
-.timeline-card:nth-child(odd) .card-date-wrapper .card-date {
-  background-image: linear-gradient(90deg, var(--color4Dark) 40%,  var(--color4) 100%);
-}
 
-.left-images {
-  justify-content: flex-end;
-  width: 100px;
-}
 
-.right-images {
-  justify-content: flex-start;
-  width:100px
-}
 
-.drifting-image {
-  position: absolute;
-  max-width: 150px;
-  z-index: 1;
-  pointer-events: none;
-  outline: 3px double var(--color5);
-}
 
-#drifting-images {
-  width: 20vw;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  z-index: 1;
-}
+
 
 .timeline-wrapper{
   justify-content: space-around;
