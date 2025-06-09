@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import RightArrow from '../icons/RightArrow.astro';
+import LeftArrow from '../icons/LeftArrow.astro';
+import XIcon from '../icons/XIcon.astro';
+const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
+---
+<div id="popup-div" class="">
+    <div>
+        <div id="popup-close-btn">
+            <XIcon/>
+        </div>
+    </div>
+    <div class="lateral-arrow-div" id="right-arrow-div">
+    <RightArrow id="popup-left-arrow"/></div>
+    <div class="lateral-arrow-div" id="left-arrow-div">
+    <LeftArrow id="popup-right-arrow"/></div>
+    <span class="popuptext">
+        POPUP
+    </span>
+    <div id="popup-image-container">
+        {
+            files.map((proj:any) => 
+            <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
+                {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image"}/>)}
+            </div>
+        
+        )
+        }
+    </div>
+</div>
+
+<style>
+    #popup-div {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+
+        position: fixed; /* Fixed/sticky position */
+        /*top: 50%;  Place the button at the bottom of the page */
+        /*right: 50%;  Place the button 30px from the right */
+        z-index: 98; /* Make sure it does not overlap */
+        background-color: var(--color1); /* Set a background color */
+        outline: 5px inset var(--color4Light);
+        color: var(--color4); /* Text color */
+        font-family: "ProgrammerFont";
+        padding: 5px; /* Some padding */
+        font-size: 18px; /* Increase font size */
+
+        width: 70%;
+        height: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    #popup-div.show {
+        opacity:1;
+        pointer-events: auto;
+    }
+
+    .lateral-arrow-div{
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: transparent;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .lateral-arrow-div:hover{
+        background-color: var(--color4);
+        color:var(--color4Dark);
+    }
+    #left-arrow-div{
+        position:fixed;
+        left: 5px;
+    }
+    #right-arrow-div{
+        position:fixed;
+        right: 5px;
+    }
+    #popup-close-btn{
+        outline: 2px solid var(--color4);
+        display:inline-block;
+    }
+
+    #popup-close-btn:hover{
+        background-color: var(--color4);
+        color:var(--color4Dark);
+        cursor:pointer;
+    }
+
+    img.show{
+        opacity: 1;
+    }
+
+    img.hide{
+        opacity: 0;
+    }
+
+
+</style>

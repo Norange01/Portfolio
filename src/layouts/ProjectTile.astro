@@ -45,11 +45,12 @@ let githubAvailable=githubLink!=="";
         <p class="card-description">
             <slot/>
         </p>
+        <div id={title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image-container"} class="card-image-container">
         {(numImages>0) && (
             ((images.map((imageName) => (<img src={"/project_images/"+imageName+".png"} alt={imageName} class={"card-image "+title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image"} style={"object-fit: cover; width: auto; max-width: 100%; height: "+imageHeight}/>))))
             
             )}
-        
+        </div>
         {videoAvailable && (
             !videoIsLocal && (
                 <a href={videoLink} class="highlightable-button" target="_blank" rel="noopener noreferrer">
@@ -81,8 +82,13 @@ let githubAvailable=githubLink!=="";
     let intervalId;
     let slides = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image");
     const cardDiv = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-div")[0];
+    const popupDiv = document.getElementById('popup-div');
+    const maxedImages = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image");
+    const cardImageContainer = document.getElementById(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image-container");
     cardDiv.addEventListener('mouseover', activateSlides);
     cardDiv.addEventListener('mouseleave', pauseSlides);
+    cardImageContainer.addEventListener('mousedown', maximizeImage);
+
     let slidesActive=false;
     showSlides();
 
@@ -123,6 +129,15 @@ let githubAvailable=githubLink!=="";
         }
         intervalId = setTimeout(showSlides, 1000);
     }
+
+    function maximizeImage(){
+        maxedImages[0].classList.remove("hide");
+        popupDiv.classList.add("show");
+        maxedImages[0].classList.add("show");
+    }
+
+
+
 </script>
 
 
@@ -153,7 +168,13 @@ let githubAvailable=githubLink!=="";
         display: block;
         margin-left: auto;
         margin-right: auto;
+        
     }
+    .card-image-container:hover{
+        cursor:zoom-in;
+    }
+
+
 
 
 </style>

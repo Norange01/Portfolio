@@ -226,7 +226,6 @@ p {
   const images = document.getElementsByClassName('drifting-image');
   let rect = document.getElementById("experience-header").getBoundingClientRect();
   let deadband=rect.bottom;
-  console.debug(deadband);
 
 
   let multipliers = [];
@@ -248,8 +247,6 @@ p {
     else{
       scrollY=0;
     }
-
-    console.debug(scrollY);
 
     // Example: Translate element horizontally based on scroll
     for(let i=0; i<images.length; i++){
