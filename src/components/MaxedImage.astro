@@ -7,7 +7,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
 ---
 <div id="popup-div" class="">
     <div>
-        <div id="popup-close-btn">
+        <div id="popup-close-btn" onclick="closePopup()">
             <XIcon/>
         </div>
     </div>
@@ -22,7 +22,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         {
             files.map((proj:any) => 
             <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
-                {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image"}/>)}
+                {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image popup-image"}/>)}
             </div>
         
         )
@@ -52,6 +52,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        overflow:hidden;
 
     }
 
@@ -90,13 +91,28 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         cursor:pointer;
     }
 
+    img{
+        opacity: 0;
+    }
+
     img.show{
         opacity: 1;
     }
 
-    img.hide{
-        opacity: 0;
-    }
-
 
 </style>
+
+<script>
+    const popupDiv = document.getElementById("popup-div");
+    const popupImages = document.getElementsByClassName("popup-image");
+
+    function closePopup(){
+        popupDiv.classList.remove("show");
+
+        for(let i=0; i<popupImages.length; i++){
+            popupImages[i].classList.remove("show");
+        }
+
+    }
+    window.closePopup = () => closePopup();
+</script>
