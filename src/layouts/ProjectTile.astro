@@ -137,9 +137,13 @@ let githubAvailable=githubLink!=="";
     }
 
     function maximizeImage(){
+
         popupDiv.classList.add("show");
         projSpecificPopup.classList.add("active");
         maxedImages[0].classList.add("show");
+
+        const popupWindowTitle = document.getElementById("popup-window-title");
+        popupWindowTitle.textContent=maxedImages[0].alt;
     }
 
     /*

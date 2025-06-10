@@ -10,15 +10,13 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         <div id="popup-close-btn" onclick="closePopup()">
             <XIcon/>
         </div>
+        <span id="popup-window-title"></span>
+        
     </div>
     <div class="lateral-arrow-div" id="right-arrow-div" onclick="nextImage()">
     <RightArrow id="popup-left-arrow"/></div>
     <div class="lateral-arrow-div" id="left-arrow-div" onclick="prevImage()">
     <LeftArrow id="popup-right-arrow"/></div>
-    <span class="popuptext">
-        POPUP
-    </span>
-    <div id="popup-image-container">
         {
             files.map((proj:any) => 
             <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
@@ -27,7 +25,6 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         
         )
         }
-    </div>
 </div>
 
 <style>
@@ -53,7 +50,6 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         left: 50%;
         transform: translate(-50%, -50%);
         overflow:hidden;
-
     }
 
     #popup-div.show {
@@ -64,9 +60,11 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     .lateral-arrow-div{
         border-radius: 10px;
         cursor: pointer;
-        background-color: transparent;
+        background-color: black;
         top: 50%;
         transform: translateY(-50%);
+        display: block flex;
+        flex-direction: column;
     }
     .lateral-arrow-div:hover{
         background-color: var(--color4);
@@ -83,6 +81,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     #popup-close-btn{
         outline: 2px solid var(--color4);
         display:inline-block;
+        margin:2px;
     }
 
     #popup-close-btn:hover{
@@ -91,14 +90,35 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         cursor:pointer;
     }
 
+    #popup-image-container{
+        max-height: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+    }
+
     img{
         display:none;
+        max-height: 100%;
         max-width: 100%;
-        max-height:100%
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
     }
 
     img.show{
         display:block;
+    }
+
+    #popup-window-title{
+        margin-left: 20px;
+        margin-bottom: 10px;
+        position: relative;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+
     }
 
 
@@ -107,6 +127,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
 <script>
     const popupDiv = document.getElementById("popup-div");
     const popupImages = document.getElementsByClassName("popup-image");
+    const popupWindowTitle = document.getElementById("popup-window-title");
     let slideIndex = 0;
 
     function closePopup(){
@@ -129,6 +150,8 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         maxedImages[slideIndex].classList.remove("show");
         slideIndex=(slideIndex+1)%maxedImages.length;
         maxedImages[slideIndex].classList.add("show");
+
+        popupWindowTitle.textContent=maxedImages[slideIndex].alt;
     }
 
     function prevImage(){
@@ -139,6 +162,8 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         slideIndex=(slideIndex-1);
         if(slideIndex<0){slideIndex=maxedImages.length-1;}
         maxedImages[slideIndex].classList.add("show");
+
+        popupWindowTitle.textContent=maxedImages[slideIndex].alt+".jpg";
     }
     window.closePopup = () => closePopup();
     window.nextImage = () => nextImage();
