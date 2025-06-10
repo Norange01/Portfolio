@@ -84,6 +84,7 @@ let githubAvailable=githubLink!=="";
     let slides = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image");
     const cardDiv = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-div")[0];
     const popupDiv = document.getElementById('popup-div');
+    const projSpecificPopup = document.getElementById(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-popup")
     const maxedImages = document.getElementsByClassName(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image");
     const cardImageContainer = document.getElementById(title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') + "-image-container");
     
@@ -93,9 +94,6 @@ let githubAvailable=githubLink!=="";
     cardDiv.addEventListener('mouseover', activateSlides);
     cardDiv.addEventListener('mouseleave', pauseSlides);
     cardImageContainer.addEventListener('mousedown', maximizeImage);
-
-    leftArrow.addEventListener('mousedown', prevImage);
-    rightArrow.addEventListener('mousedown', nextImage);
 
     let slidesActive=false;
     showSlides();
@@ -140,9 +138,11 @@ let githubAvailable=githubLink!=="";
 
     function maximizeImage(){
         popupDiv.classList.add("show");
+        projSpecificPopup.classList.add("active");
         maxedImages[0].classList.add("show");
     }
 
+    /*
     function nextImage(){
         maxedImages[popupSlideIndex].classList.remove("show");
         popupSlideIndex=(popupSlideIndex+1)%maxedImages.length;
@@ -155,7 +155,7 @@ let githubAvailable=githubLink!=="";
         if(popupSlideIndex<0){popupSlideIndex=maxedImages.length-1;}
         maxedImages[popupSlideIndex].classList.add("show");
     }
-
+*/
 
 </script>
 
