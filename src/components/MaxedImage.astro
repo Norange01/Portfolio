@@ -6,25 +6,31 @@ import XIcon from '../icons/XIcon.astro';
 const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
 ---
 <div id="popup-div" class="">
-    <div>
+    <div id="window-bar">
         <div id="popup-close-btn" onclick="closePopup()">
             <XIcon/>
         </div>
         <span id="popup-window-title"></span>
         
     </div>
-    <div class="lateral-arrow-div" id="right-arrow-div" onclick="nextImage()">
-    <RightArrow id="popup-left-arrow"/></div>
-    <div class="lateral-arrow-div" id="left-arrow-div" onclick="prevImage()">
-    <LeftArrow id="popup-right-arrow"/></div>
-        {
-            files.map((proj:any) => 
-            <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
-                {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image popup-image"}/>)}
-            </div>
-        
-        )
-        }
+    <div id="inner-window">
+        <div class="lateral-arrow-div" id="left-arrow-div" onclick="prevImage()">
+            <LeftArrow id="popup-right-arrow"/>
+        </div>
+        <div id="images-container">
+            {
+                files.map((proj:any) => 
+                <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
+                    {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image popup-image"}/>)}
+                </div>
+            
+            )
+            }
+        </div>
+        <div class="lateral-arrow-div" id="right-arrow-div" onclick="nextImage()">
+            <RightArrow id="popup-left-arrow"/>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -57,18 +63,34 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         pointer-events: auto;
     }
 
+    #window-bar{
+        display:block;
+    }
+
+    #inner-window{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box; 
+        max-height: 100%;
+        overflow: hidden;
+    }
+
     .lateral-arrow-div{
         border-radius: 10px;
+        width: 50px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        background-color: black;
-        top: 50%;
-        transform: translateY(-50%);
-        display: block flex;
-        flex-direction: column;
+        background-color: transparent;
+        z-index: 99;
     }
     .lateral-arrow-div:hover{
         background-color: var(--color4);
         color:var(--color4Dark);
+
     }
     #left-arrow-div{
         position:fixed;
@@ -91,19 +113,18 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     }
 
     #popup-image-container{
-        max-height: 100%;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        object-fit: contain;
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
 
     img{
         display:none;
         max-height: 100%;
         max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
         object-fit: contain;
     }
 
@@ -118,7 +139,12 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         top: 50%;
         transform: translate(-50%, -50%);
         font-size: 30px;
+        font-family: "Doto";
 
+    }
+
+    #images-container{
+        display:inline-block;
     }
 
 
