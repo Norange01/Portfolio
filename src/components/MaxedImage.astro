@@ -151,7 +151,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         slideIndex=(slideIndex+1)%maxedImages.length;
         maxedImages[slideIndex].classList.add("show");
 
-        popupWindowTitle.textContent=maxedImages[slideIndex].alt;
+        popupWindowTitle.textContent=maxedImages[slideIndex].alt+".jpg";
     }
 
     function prevImage(){
