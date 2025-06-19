@@ -20,7 +20,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         <div id="images-container">
             {
                 files.map((proj:any) => 
-                <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup"}>
+                <div id={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup" } class="popup-proj-div">
                     {proj.frontmatter.images.map((imageName:any) => <img src={"/project_images/"+imageName+".png"} alt={imageName} class={proj.frontmatter.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')+"-popup-image popup-image"}/>)}
                 </div>
             
@@ -64,28 +64,50 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     }
 
     #window-bar{
-        display:block;
+        /*display:block;*/
     }
 
     #inner-window{
-        display:flex;
+        /*display:flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box; 
-        max-height: 100%;
+        max-height: 100%;*/
         overflow: hidden;
+        display: flex;
+
+        /* Size */
+        height: 100%;
+    }
+
+    #images-container{
+        flex: 1;
+        /*height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;*/
+        overflow: hidden;
+        z-index: 99;
+        width:80%;
     }
 
     .lateral-arrow-div{
         border-radius: 10px;
-        width: 50px;
+        /*width: 50px;
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center;*/
         cursor: pointer;
         background-color: transparent;
         z-index: 99;
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Size */
+        width: 10%;
     }
     .lateral-arrow-div:hover{
         background-color: var(--color4);
@@ -112,24 +134,15 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         cursor:pointer;
     }
 
-    #popup-image-container{
-        flex: 1;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
     img{
         display:none;
         max-height: 100%;
         max-width: 100%;
-        object-fit: contain;
+        /*object-fit: contain;*/
     }
 
     img.show{
-        display:block;
+        display:flex;
     }
 
     #popup-window-title{
@@ -144,7 +157,8 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     }
 
     #images-container{
-        display:inline-block;
+        width:80%;
+        height:100%;
     }
 
 
