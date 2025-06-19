@@ -2,6 +2,7 @@
 title: "Rubik's Cube Solver"
 type: 'personal project'
 affiliation:
+year: '2022'
 images: ["RubiksCubeSolver1","RubiksCubeSolver2","RubiksCubeSolver3","RubiksCubeSolver4"]
 imageHeight: 400px
 skills: ['Unity Game Engine', 'UI/UX', 'CS', 'Algorithm Development']

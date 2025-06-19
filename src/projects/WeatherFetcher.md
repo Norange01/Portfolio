@@ -2,6 +2,7 @@
 title: 'Weather Fetcher'
 type: 'personal project'
 affiliation:
+year: '2023'
 images: ["WeatherFetcher1","WeatherFetcher2"]
 imageHeight: 300px
 skills: ['Python', 'Web Scraping', 'Raspberry Pi']

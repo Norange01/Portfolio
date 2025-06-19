@@ -2,6 +2,7 @@
 title: 'Paper Speaker Device'
 type: 'academic project'
 affiliation: 'McMaster University'
+year: '2022'
 images: ["DIYSpeaker1", "DIYSpeaker2", "DIYSpeaker3"]
 imageHeight: 250px
 skills: ['Circuits']

@@ -2,6 +2,7 @@
 title: 'Palm Free: A Game for Improving Motor Skills of Post-stroke Patients'
 type: 'work project'
 affiliation: 'Palm Free'
+year: '2024'
 images: []
 imageHeight: 300px
 skills: ['Unity Game Engine','UI/UX','CS', 'Research']

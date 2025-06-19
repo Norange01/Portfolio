@@ -2,6 +2,7 @@
 title: 'RhythmGuard: Detecting Arrhythmia with TinyML'
 type: 'academic project'
 affiliation: 'McMaster University'
+year: '2025'
 images: ["RhythmGuard5","RhythmGuard3","RhythmGuard1","RhythmGuard2"]
 imageHeight: 300px
 skills: ['AI', 'Python', 'CPP', 'Arduino', 'Data Processing and Analysis', 'Signal Processing', 'Research', 'Writing']
