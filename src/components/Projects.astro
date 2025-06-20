@@ -30,7 +30,7 @@ const allYearsArr = Array.from(allYears).sort();
 <h1 id="projects-header">Projects</h1>
 <div class="sidebar">
     <aside class="sidebar__sidebar">
-        <h2 style="text-align: center">Filters (AND based)</h2>
+        <h2 style="text-align: center">Filters</h2>
         <div class="filters" id="filters">
             <div class="skills-filter">
                 <LabeledSeparator>SKILLS:</LabeledSeparator>
@@ -161,6 +161,10 @@ const allYearsArr = Array.from(allYears).sort();
         let selectedCheckboxes = document.getElementsByClassName("custom-checkbox-button__checkbox--selected");
         showAll();
 
+        if(selectedCheckboxes.length==0){
+            return;
+        }
+
         let checkboxLabels=[];
         for(let i=0; i<selectedCheckboxes.length; i++){
             let checkboxLabel = selectedCheckboxes[i].parentElement?.parentElement?.id.replace("-checkbox", "");
@@ -168,7 +172,8 @@ const allYearsArr = Array.from(allYears).sort();
         }
 
         for(let i=0; i<allProjects.length; i++){
-            if(checkboxLabels.every(CBLabel => allProjects[i].classList.contains(CBLabel))){
+        
+            if(checkboxLabels.filter(value => allProjects[i].classList.contains(value)).length>0){
                 allProjects[i].classList.remove("hidden");
             }
             else{
