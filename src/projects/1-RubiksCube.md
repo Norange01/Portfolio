@@ -2,7 +2,8 @@
 title: "Rubik's Cube Solver"
 type: 'personal project'
 affiliation:
-images: ["RubiksCubeSolver1","RubiksCubeSolver2","RubiksCubeSolver3","RubiksCubeSolver4"]
+year: '2022'
+images: ["RubiksCubeSolver_Controls","RubiksCubeSolver_Solution_Walkthrough","RubiksCubeSolver_Colorblind_Mode","RubiksCubeSolver_User_Input"]
 imageHeight: 400px
 skills: ['Unity Game Engine', 'UI/UX', 'CS', 'Algorithm Development']
 videoLink: "https://youtu.be/vXzRhPgN0zE?si=nEk2alS5UR1XK7-D"

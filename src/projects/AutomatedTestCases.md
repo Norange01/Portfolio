@@ -2,6 +2,7 @@
 title: 'Automated Web Test Cases'
 type: 'work project'
 affiliation: 'Muslim Association of Canada'
+year: '2023'
 images: []
 imageHeight: 300px
 skills: ['Java', 'Web Scraping']

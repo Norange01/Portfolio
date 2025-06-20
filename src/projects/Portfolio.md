@@ -2,6 +2,7 @@
 title: 'Online Portfolio'
 type: 'personal project'
 affiliation:
+year: '2025'
 images: []
 imageHeight: 300px
 skills: ['HTML', 'Astro Framework', 'CSS', 'Javascript', 'UI/UX']
