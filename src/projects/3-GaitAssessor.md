@@ -3,7 +3,7 @@ title: 'Gait Assessor'
 type: 'academic project'
 affiliation: 'McMaster University'
 year: '2023'
-images: ["GaitAssessor1","GaitAssessor3","GaitAssessor2"]
+images: ["GaitAssessor_UI_vs_Foot_Position","GaitAssessor_Gait_Patterns","GaitAssessor_Building_the_UI"]
 imageHeight: 300px
 skills: ['CPP', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'Signal Processing', 'Research']
 videoLink:  "https://www.youtube.com/watch?v=ocvgvfC_OX0"

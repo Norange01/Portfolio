@@ -3,7 +3,7 @@ title: 'Friendship Bracelet Solver'
 type: 'personal project'
 affiliation:
 year: '2025'
-images: ["FriendshipBraceletSolver1"]
+images: ["FriendshipBraceletSolver"]
 imageHeight: 300px
 skills: ['UI/UX', 'Python', 'Algorithm Development']
 videoLink: ""

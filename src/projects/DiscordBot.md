@@ -3,7 +3,7 @@ title: 'Discord Anti-Bullying Bot'
 type: 'personal project'
 affiliation:
 year: '2022'
-images: ["DiscordBot6","DiscordBot2","DiscordBot3","DiscordBot4","DiscordBot1","DiscordBot5"]
+images: ["DiscordBot_Anti_Bullying","DiscordBot_Stonks_Meme","DiscordBot_Megamind_Meme","DiscordBot_Reddit_Reading","DiscordBot_Invert_Image","DiscordBot_List_of_Commands"]
 imageHeight: 300px
 skills: ['Python', 'Raspberry Pi']
 videoLink:  ""

@@ -2,7 +2,8 @@
 title: 'Ask Those Who Tried: A Guide to Choosing Your University Major'
 type: 'personal project'
 affiliation:
-images: ["AskThoseWhoTried1","AskThoseWhoTried2", "AskThoseWhoTried - P1", "AskThoseWhoTried - P2"]
+year: '2017'
+images: ["AskThoseWhoTried_Young_Noor","AskThoseWhoTried_Cover", "AskThoseWhoTried_Sample_Page_1", "AskThoseWhoTried_Sample_Page_2"]
 imageHeight: 340px
 skills: ['Writing', 'Research']
 videoLink: ""
