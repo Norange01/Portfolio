@@ -15,7 +15,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     </div>
     <div id="inner-window">
         <div class="lateral-arrow-div" id="left-arrow-div" onclick="prevImage()">
-            <LeftArrow id="popup-right-arrow"/>
+            <LeftArrow id="popup-left-arrow"/>
         </div>
         <div id="images-container">
             {
@@ -28,7 +28,7 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
             }
         </div>
         <div class="lateral-arrow-div" id="right-arrow-div" onclick="nextImage()">
-            <RightArrow id="popup-left-arrow"/>
+            <RightArrow id="popup-right-arrow"/>
         </div>
     </div>
 </div>
@@ -101,7 +101,6 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
     }
 
     .lateral-arrow-div{
-        border-radius: 10px;
         /*width: 50px;
         height: 100%;
         display: flex;
@@ -109,14 +108,16 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         justify-content: center;*/
         cursor: pointer;
         background-color: transparent;
-        z-index: 99;
+        z-index: 100;
         /* Center the content */
         align-items: center;
         display: flex;
         justify-content: center;
+        padding-bottom: 10px;
 
         /* Size */
-        width: 10%;
+        width: 60px;
+        height: calc(100% - 60px);
     }
     .lateral-arrow-div:hover{
         background-color: var(--color4);
@@ -148,7 +149,9 @@ const files = Object.values(import.meta.glob("../projects/*.md", {eager: true}))
         max-height: 100%;
         max-width: 100%;
         position:relative;
-        /*object-fit: contain;*/
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     img.show{
