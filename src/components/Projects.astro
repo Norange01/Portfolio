@@ -94,6 +94,7 @@ const allYearsArr = Array.from(allYears).sort();
         outline: 2px outset var(--color4Light);
         margin: 20px 0px 20px 20px;
         padding: 15px 10px 10px 10px;
+        display:none;
     }
 
     .sidebar__main {
@@ -112,12 +113,19 @@ const allYearsArr = Array.from(allYears).sort();
         display:none;
     }
 
+    @media (min-width: 600px) {
+        .sidebar__sidebar {
+            display:block;
+        }
+    }
+
     @media (min-width: 750px) {
         .masonry-grid {
             column-count: 2;
         }
         .sidebar__sidebar {
             width: 25%;
+            display:block;
         }
     }
 
@@ -127,6 +135,7 @@ const allYearsArr = Array.from(allYears).sort();
         }
         .sidebar__sidebar {
             width: 20%;
+            display:block;
         }
     }
 
