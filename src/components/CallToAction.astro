@@ -2,9 +2,13 @@
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 ---
-<div id="#call-to-action-cover"/>
-<div id="call-to-action-div"><h1>What's next? Up to you.</h1>
-<p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit reprehenderit autem dolorum sunt. Maxime magnam totam cupiditate laborum sequi dolor, libero impedit, dolorum dolore nesciunt corrupti nihil natus, voluptates neque? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, accusantium officiis! Quaerat illum exercitationem nulla laudantium repudiandae optio debitis, incidunt expedita, a molestiae quia mollitia illo labore tempora atque facilis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dignissimos mollitia iure unde ullam minus praesentium quis hic, alias vel libero ad impedit. Iste ipsam quibusdam, ullam ab consectetur reprehenderit.</p>
+<div id="call-to-action-cover"/>
+<div id="call-to-action-div">
+    <div id="padded-footer" style="padding: 0% 10%;">
+        <h1 style="text-align: left">What's next? That's where you come in.</h1>
+        <p>I'd love to chat about opportunities, project ideas, or memes. Go ahead, click that button (you wanna see what happens).</p>
+        <button class="highlightable-button" style="font-size: 40px; text-align-center; outline: inset 2px var(--color4); margin-top: 50px;">CONTACT ME</button>
+    </div>
     <div id="footer-div">
         <Footer />
     </div>
@@ -19,13 +23,14 @@ import Footer from '../components/Footer.astro';
         bottom: 0;
         position: -webkit-sticky;
         position:sticky;
-        padding: 5px 0;
         background-color: black;
+        padding-top: 20px;
     }
     #call-to-action-cover{
         position: absolute;
-        height: 500px;
         background-image: linear-gradient(to top, transparent 60px, var(--color2) 60px, var(--color2) 0);
+        padding-top: 20px;
     }
+
 
 </style>
