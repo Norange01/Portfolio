@@ -5,7 +5,7 @@ import '../styles/global.css';
 
 <div id="hero-div">
     <h1 style="margin: 0 60px 0 60px;">Hi, I'm <span class="highlight">Noor</span>.</h1>
-    <h1 style="margin: 0 60px 0 60px;" id="role">A <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Mechatronics</span></div> and <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Biomedical</span></div> <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Engineer</span></div> in <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Training</span></div>.</h1>
+    <h1 style="margin: 0 60px 0 60px;" id="role">A <div class="changing-role-container"><span class="role-placeholder glitch"/><span class="replaceable-word">Mechatronics</span></div> and <div class="changing-role-container"><span class="role-placeholder glitch"/><span class="replaceable-word">Biomedical</span></div> <div class="changing-role-container"><span class="role-placeholder glitch"/><span class="replaceable-word">Engineer</span></div> in <div class="changing-role-container"><span class="role-placeholder glitch"/><span class="replaceable-word">Training</span></div>.</h1>
     <p>
     <a href="https://www.linkedin.com/in/noor-al-rajab/"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="linkedin" class="contact-icons"><path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z"></path></svg></a>
     <a href="mailto:nalrajab01@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="envelope" class="contact-icons"><path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"></path></svg></a>
@@ -40,10 +40,98 @@ import '../styles/global.css';
 
     .highlighted-role {
         color: var(--color2);
-        background-color: var(--color4);
         display: inline-block;
         width: 100%;
     }
+
+    .changing-role-container:has(.highlighted-role){
+        background-color: var(--color4);
+    }
+
+
+    .glitch {
+
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.025em -0.05em 0 rgba(163, 255, 163, 0.75),
+        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+
+    animation: glitch 250ms infinite;
+    }
+
+    .glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+
+    .glitch span:first-child {
+    animation: glitch 650ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-0.025em, -0.0125em);
+    /* color: green; */
+    opacity: 0.8;
+    }
+
+    .glitch span:last-child {
+    animation: glitch 200ms infinite;
+    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+    transform: translate(0.0125em, 0.025em);
+    /* color: red; */
+    opacity: 0.8;
+    }
+
+    /* https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites */
+
+    @keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.05em -0.025em 0 rgba(163, 255, 163, 0.75),
+        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.05em -0.025em 0 rgba(163, 255, 163, 0.75),
+        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+        0.025em 0.025em 0 rgba(163, 255, 163, 0.75),
+        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+        0.025em 0.025em 0 rgba(163, 255, 163, 0.75),
+        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+        0.05em 0 0 rgba(163, 255, 163, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+        0.05em 0 0 rgba(163, 255, 163, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+        -0.025em -0.025em 0 rgba(163, 255, 163, 0.75),
+        -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    }
+
 </style>
 <script>
 
