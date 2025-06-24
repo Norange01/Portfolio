@@ -7,13 +7,23 @@ import Projects from '../components/Projects.astro';
 import Experience from '../components/Experience.astro'
 import BackToTopBtn from '../components/BackToTopBtn.astro';
 import MaxedImage from '../components/MaxedImage.astro';
+import CallToAction from '../components/CallToAction.astro';
 ---
 
 <Layout>
-	<MaxedImage/>
-	<BackToTopBtn/>
-	<Hero/>
-	<Projects/>
-	<Experience/>
+	<div id="foreground">
+		<MaxedImage/>
+		<BackToTopBtn/>
+		<Hero/>
+		<Projects/>
+		<Experience/>
+	</div>
+	<CallToAction/>
 </Layout>
+
+<style>
+	#foreground{
+		background-color: var(--color2);
+	}
+</style>
 
