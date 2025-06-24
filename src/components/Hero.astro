@@ -5,7 +5,7 @@ import '../styles/global.css';
 
 <div id="hero-div">
     <h1 style="margin: 0 60px 0 60px;">Hi, I'm <span class="highlight">Noor</span>.</h1>
-    <h1 style="margin: 0 60px 0 60px;" id="role">A Mechatronics and Biomedical Engineer in Training.</h1>
+    <h1 style="margin: 0 60px 0 60px;" id="role">A <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Mechatronics</span></div> and <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Biomedical</span></div> <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Engineer</span></div> in <div class="changing-role-container"><span class="role-placeholder"/><span class="replaceable-word">Training</span></div>.</h1>
     <p>
     <a href="https://www.linkedin.com/in/noor-al-rajab/"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="linkedin" class="contact-icons"><path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z"></path></svg></a>
     <a href="mailto:nalrajab01@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="envelope" class="contact-icons"><path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"></path></svg></a>
@@ -16,51 +16,62 @@ import '../styles/global.css';
     <!--CubeScene client:load /-->
 </div>
 <style>
-    
+    .changing-role-container{
+        display: inline-flex;
+        position: relative;
+    }
+
+
+    .role-placeholder{
+        display: none;
+        position: absolute;
+        align-items: center;
+    }
+
+    .replaceable-word{
+        visibility:visible;
+        position: relative;
+    }
+
+    .highlight {
+        color: var(--color4Dark);
+        animation: highlightAnimation 2s ease-in-out forwards;
+    }
+
+    .highlighted-role {
+        color: var(--color2);
+        background-color: var(--color4);
+        display: inline-block;
+        width: 100%;
+    }
 </style>
 <script>
 
     const roles = ["artist", "techie", "tutor", "writer", "mentor"];
     const fonts= ["ArtistFont", "ProgrammerFont", "TutorFont", "Times New Roman, serif", "MentorFont"];
-    const defaultText= "A Mechatronics and Biomedical Engineer in Training.";
-    const defaultTextArray = defaultText.split(" ");
-    const minWidthPerWord=["270px", "200px", "170px", "160px"];
+    const rolePlaceholderElems = document.getElementsByClassName("role-placeholder");
+    const replaceableRoleElems= document.getElementsByClassName("replaceable-word");
     let counter = 0;
 
     function returnToDefault(){
-        document.getElementById("role").innerHTML = defaultText;
-        document.getElementById("role").style.fontFamily = "Jersey15";
-        //document.getElementById("role").style.color = "#59c9a5";
-        document.getElementById("role").style.fontSize = "50px";
+
+        for(let i=0; i<rolePlaceholderElems.length; i++){
+            rolePlaceholderElems[i].classList.remove("highlighted-role");
+            replaceableRoleElems[i].style.visibility='visible';
+            rolePlaceholderElems[i].style.display="none";
+        }
+
     }
 
     function myTimer() {
        
         // Choose word to replace
         let wordToReplace =Math.round(Math.random() * 3);
-        let str="";
-        // Loop through the elements concatenating them, if index is wordToReplace, put the target word there instead.
-        for (let i=0; i<defaultTextArray.length; i++){
-            if(i!=0){
-                str+=" ";
-            }
-            if((i==1 && wordToReplace==0) || (i==3 && wordToReplace==1) || (i==4 && wordToReplace==2) || (i==6 && wordToReplace==3)){
-                let minWidth=minWidthPerWord[wordToReplace];
-                str+="<span class='highlighted-role' style='font-family:"+fonts[counter]+"; font-size:40px; min-width:"+minWidth+"; display:inline-block'>"+roles[counter]+"</span>";
-                if(wordToReplace==3){
-                    str+=".";
-                }
-            }
-            else{
-                str+=defaultTextArray[i];
-            }
-        }
-        
-        
-        document.getElementById("role").innerHTML = str;
-        //document.getElementById("role").style.fontFamily = fonts[counter];
-        //document.getElementById("role").style.color = "#f2bac9";
-        //document.getElementById("role").style.fontSize = fontSizes[counter];
+        rolePlaceholderElems[wordToReplace].textContent=roles[counter];
+        rolePlaceholderElems[wordToReplace].style.fontFamily=fonts[counter];
+        rolePlaceholderElems[wordToReplace].classList.add("highlighted-role");
+        rolePlaceholderElems[wordToReplace].style.display="inline-block";
+        replaceableRoleElems[wordToReplace].style.visibility='hidden';
         counter = (counter + 1) % roles.length;
         setTimeout(returnToDefault, 800);
 

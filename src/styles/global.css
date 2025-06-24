@@ -166,16 +166,6 @@ p {
  
 }
 
-.highlight {
-  color: var(--color4Dark);
-  animation: highlightAnimation 2s ease-in-out forwards;
-}
-
-.highlighted-role {
-  color: var(--color2);
-  background-color: var(--color4);
-}
-
 .contact-icons {
   fill: var(--color4Dark);
   transition: fill 0.5s ease;
