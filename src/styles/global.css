@@ -92,15 +92,6 @@ html, body {
 
 }
 
-.horizontal-stripe {
-  background: repeating-linear-gradient(0deg, 
-  var(--color2), var(--color2) 5px, 
-  var(--color1) 0, var(--color1) 10px);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -2;
-}
 
 .horizontal-stripe-mask{
   width: 100%;
