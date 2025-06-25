@@ -17,7 +17,7 @@ import '../styles/global.css';
     <div id="nav-bar">
 
         <div style="display:flex;">
-            <li id="navbar-noor"><span id="navbar-noor-span" class="noor-span-hidden">Noor</span></li>
+            <li id="navbar-noor" onclick="topFunction()"><span id="navbar-noor-span" class="noor-span-hidden">Noor</span></li>
             <ul id="navbar-ul">
                 <li class="navbar-li"><button class="nav-bar-item" id="nav-bar-projects-btn">Projects</button></li>
                 <li class="navbar-li"><button class="nav-bar-item" id="nav-bar-experience-btn">Experience</button></li>
@@ -39,6 +39,7 @@ import '../styles/global.css';
         color: var(--color4);
         font-size: 40px;
         overflow:hidden;
+        cursor:pointer;
     }
 
     #navbar-noor-span{
