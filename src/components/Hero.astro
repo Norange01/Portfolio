@@ -248,7 +248,6 @@ import '../styles/global.css';
 
     const experienceHeader = document.getElementById('experience-header');
     const projectsHeader = document.getElementById('projects-header');
-    const footer = document.getElementById('call-to-action-div');
 
     function gotoProjects(){
         projectsHeader.scrollIntoView();
@@ -259,7 +258,7 @@ import '../styles/global.css';
     }
 
     function gotoContact(){
-        footer.scrollIntoView();
+        window.scrollTo(0, document.body.scrollHeight);
     }
 
     const roles = ["artist", "techie", "tutor", "writer", "mentor"];
