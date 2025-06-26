@@ -7,8 +7,8 @@ import Footer from '../components/Footer.astro';
     <div id="padded-footer" style="padding: 0% 10% 40px;">
         <h1 style="text-align: left">What's next? That's where you come in.</h1>
         <p>I'd love to chat about opportunities, project ideas, or memes. Go ahead, click those buttons (you wanna see what happens).</p>
-        <a href="mailto:nalrajab01@gmail.com" class="highlightable-button" style="font-size: 40px; text-align-center; outline: inset 2px var(--color4); margin-top: 50px; padding:5px; text-decoration:none;">CONTACT ME</a>
-        <button class="highlightable-button" id="cool-secret-button" style="font-size: 40px; text-align-center; outline: inset 2px var(--color4); margin-top: 4px;">COOL SECRET BUTTON</button>
+        <a href="mailto:nalrajab01@gmail.com" class="call-to-action-button">CONTACT ME</a>
+        <button id="cool-secret-button" class="call-to-action-button">COOL SECRET BUTTON</button>
         <!--<a href="http://www.cornify.com" onclick="cornify_add();return false;" title="Cornify"><img src="https://www.cornify.com/assets/cornify-button.png" width="82" height="25" border="0" alt="Cornify" /></a><script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>-->
     </div>
     <div id="footer-div">
@@ -33,6 +33,23 @@ import Footer from '../components/Footer.astro';
         background-image: linear-gradient(to top, transparent 60px, var(--color2) 60px, var(--color2) 0);
         padding-top: 20px;
     }
+
+    .call-to-action-button{
+        font-size: 30px;
+        text-decoration: none;
+        outline: inset 2px var(--color4);
+        margin:8px;
+        padding:5px;
+        width: 100%;
+        color:var(--color4);
+        font-family: "Chakra";
+        display:flex;
+        /*outline: 2px solid var(--color3)*/
+        background-color: transparent;
+        border:none;
+        box-sizing: border-box;
+    }
+    
 
 
 </style>
