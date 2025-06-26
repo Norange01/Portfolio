@@ -291,7 +291,34 @@ p {
 		height:10px;
 	}
 	.infected{
-		background-color: black !important;
+		background-color: var(--color4) !important;
+	}
+
+  .dead{
+    background-color: black !important;
+  }
+
+  #virus-grid-text{
+		z-index:101;
+		opacity: 0;
+		position: fixed;
+    width: 100%;
+    height: 100%;
+    display:none;
+	}
+	.virus-animation-done{
+		animation: fadeIn 3s forwards;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+	}
+	@keyframes fadeIn{
+		0%   { opacity: 0; }
+    	100% { opacity: 1; }
 	}
 
 

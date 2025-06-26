@@ -58,6 +58,8 @@ import Footer from '../components/Footer.astro';
 <script>
     const grid = document.getElementById("virus-grid");
 	const btn = document.getElementById("cool-secret-button");
+    const deathRandThreshold = 0.9;
+    const infectRandThreshold = 0.5;
 
     const cellSize=10;
     let cols, rows;
@@ -66,6 +68,8 @@ import Footer from '../components/Footer.astro';
     function createGrid(){
         cols=Math.ceil(window.innerWidth/cellSize);
         rows = Math.ceil(window.innerHeight/cellSize);
+        console.debug("rows= "+rows.toString());
+        console.debug("cols= "+cols.toString());
         grid.style.gridTemplateColumns = `repeat(${cols}, ${cellSize}px)`;
         grid.style.gridTemplateRows = `repeat(${rows}, ${cellSize}px)`;
 
@@ -81,23 +85,96 @@ import Footer from '../components/Footer.astro';
     }
 
     function infectScreen(){
-        let left=0;
-        let right=cols-1;
+        function infect(row, col){
+            if(Math.random()>infectRandThreshold){
+                if(row>=0 && row<rows  && col>=0 && col<cols && !cells[row][col].classList.contains("infected")){
+                    cells[row][col].classList.add("infected");
+                }
+            }
+        }
+
+        function kill(row, col){
+            if(Math.random()>deathRandThreshold){
+                if(row>=0 && row<rows  && col>=0 && col<cols && !cells[row][col].classList.contains("dead")){
+                    cells[row][col].classList.remove("infected");
+                    cells[row][col].classList.add("dead");
+                }
+            }
+        }
+        let randomPoints = Array.from({ length: 20 }, () => ({
+            row: Math.floor(Math.random() * rows),
+            col: Math.floor(Math.random() * cols)
+        }));
+
+        randomPoints.forEach(({ row, col }) => infect(row, col));
 
         const interval = setInterval(() => {
-            if(left>right){
+            let sawNonBlackCell = false;
+            let prevCells = []; // transparent 0, infected 1, dead 2
+            for(let r=0; r<rows; r++){
+                let prevCells_row=[];
+                for(let c=0; c<cols; c++){
+                    if(cells[r][c].classList.contains("dead")){
+                        prevCells_row[c]=2;
+                    }
+                    else if(cells[r][c].classList.contains("infected")){
+                        prevCells_row[c]=1;
+                    }
+                    else{
+                        prevCells_row[c]=0;
+                    }
+                }
+                prevCells[r]=prevCells_row;
+            }
+
+            /*for(let r=0; r<rows; r++){
+                if(cells[r][left]) cells[r][left].classList.add("infected");
+                if(cells[r][right]) cells[r][right].classList.add("infected");
+            }*/
+
+            for(let r=0; r<rows; r++){
+                for(let c=0; c<cols; c++){
+                    //console.debug("("+r.toString()+", "+c.toString()+")");
+                    if(prevCells[r][c]==1){
+                        cells[r][c].classList.remove("infected");
+                        cells[r][c].classList.add("dead");
+                        infect(r-1, c-1);
+                        infect(r-1, c);
+                        infect(r-1, c+1);
+                        infect(r, c-1);
+                        infect(r, c+1);
+                        infect(r+1, c-1);
+                        infect(r+1, c);
+                        infect(r+1, c+1);
+                        sawNonBlackCell=true;
+
+                    }
+                    else if(prevCells[r][c]==2){
+                        kill(r-1, c-1);
+                        kill(r-1, c);
+                        kill(r-1, c+1);
+                        kill(r, c-1);
+                        kill(r, c+1);
+                        kill(r+1, c-1);
+                        kill(r+1, c);
+                        kill(r+1, c+1);
+                    }
+                    else{
+                        sawNonBlackCell=true;
+                    }
+                }
+            }
+
+            if(sawNonBlackCell==false){
                 clearInterval(interval);
+                // hire me please
+                document.getElementById("virus-grid-text")?.classList.add("virus-animation-done");
                 return;
             }
 
-            for(let r=0; r<rows; r++){
-                if(cells[r][left]) cells[r][left].classList.add("infected");
-                if(cells[r][right]) cells[r][right].classList.add("infected");
-            }
-
-            left++;
-            right--;
-        }, 50); // lower=faster
+            /*left++;
+            right--;*/
+        }, 100); // lower=faster
     }
 
     btn?.addEventListener("click", () => {
