@@ -3,10 +3,10 @@ title: 'Friendship Bracelet Solver'
 type: 'personal project'
 affiliation:
 year: '2025'
-images: ["FriendshipBraceletSolver"]
+images: ["FriendshipBraceletSolver_Notebook", "FriendshipBraceletSolver_GUI1", "FriendshipBraceletSolver_GUI2"]
 imageHeight: 300px
 skills: ['UI/UX', 'Python', 'Algorithm Development']
-videoLink: ""
+videoLink: "https://youtu.be/rMRCVhyswRE?si=j-uxDSnUvIjO308h"
 github: "https://github.com/Norange01/FriendshipBraceletSolver"
 links: []
 linkTitles: []
