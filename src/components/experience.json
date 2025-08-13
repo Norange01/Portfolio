@@ -1,6 +1,12 @@
 [
     {
-        "title": "Graduated Mechatronics Engineering and Biomedical Engineering (McMaster University)",
+        "title": "Software Developer",
+        "affiliation": "Biomedtrix Innovations Inc.",
+        "date": "JUL 2025",
+        "description": "Worked on Palm Free, a therapeutic game improving dexterity in stroke rehabilitation patients for a clinical trial. Implemented persistent game data storage and retrieval systems using Unity’s PlayerPrefs framework, as well as designed and refined user interface elements. Authored and maintained structured technical documentation (MIS-style) and adhered to research ethics protocol while implementing founder-requested features."
+    },
+    {
+        "title": "Graduated Mechatronics Engineering and Biomedical Engineering",
         "affiliation": "McMaster University",
         "date": "JUN 2025",
         "description": "Finished a 5 year B.Eng.BME program at McMaster University in which I studied all concepts of pure mechatronics engineering while taking biomedical engineering and health sciences courses. I participated in multiple clubs and activities, and mentored in SRHacks, DeltaHacks, and volunteered in McMaster Design League and Ontario Engineering Competition."
