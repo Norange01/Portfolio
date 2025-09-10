@@ -5,6 +5,7 @@ import PersonalIcon from '../icons/PersonalIcon.astro'
 import WorkIcon from '../icons/WorkIcon.astro'
 import PlayIcon from '../icons/PlayIcon.astro'
 import GithubIcon from '../icons/GithubIcon.astro'
+import PDFIcon from '../icons/PDFIcon.astro'
 import Tag from '../layouts/Tag.astro'
 import 'animate.css';
 
@@ -16,12 +17,13 @@ export interface Props {
   year: string;
   videoLink?: string;
   githubLink?: string;
+  pdfLink?:string;
   tags: Array<string>;
   images: Array<string>;
   imageHeight: string;    
 }
 
-const { type, affiliation, title, year, videoLink="" , githubLink="", tags, images, imageHeight} = Astro.props as Props;
+const { type, affiliation, title, year, videoLink="" , githubLink="", pdfLink="", tags, images, imageHeight} = Astro.props as Props;
 
 let videoAvailable=videoLink!=="";
 let numImages=images.length;
@@ -30,6 +32,7 @@ if(videoLink.includes("http")){
     videoIsLocal=false;
 }
 let githubAvailable=githubLink!=="";
+let pdfAvailable = pdfLink!=="";
 ---
 
 
@@ -65,6 +68,10 @@ let githubAvailable=githubLink!=="";
             ))}
         {githubAvailable && (
             <a href={githubLink} class="highlightable-button" target="_blank" rel="noopener noreferrer"><GithubIcon/>  GITHUB REPO</a>
+            )}
+
+        {pdfAvailable && (
+            <a href={pdfLink} class="highlightable-button" target="_blank" rel="noopener noreferrer"><PDFIcon/>  PDF FILE</a>
             )}
         <div class="separator">
             <div class="separator__separator"></div>

@@ -8,6 +8,7 @@ imageHeight: 300px
 skills: ['Java', 'Web Scraping']
 videoLink: ""
 github: ""
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

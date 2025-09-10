@@ -8,6 +8,7 @@ imageHeight: 250px
 skills: ['Circuits']
 videoLink:  "https://youtu.be/Y74YwZbzEB4"
 github: ""
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

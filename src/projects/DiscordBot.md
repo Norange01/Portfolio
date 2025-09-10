@@ -8,6 +8,7 @@ imageHeight: 300px
 skills: ['Python', 'Raspberry Pi']
 videoLink:  ""
 github: ""
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

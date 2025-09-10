@@ -8,6 +8,7 @@ imageHeight: 340px
 skills: ['Writing', 'Research']
 videoLink: ""
 github: ""
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

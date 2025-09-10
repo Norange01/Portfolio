@@ -8,6 +8,7 @@ imageHeight: 300px
 skills: ['UI/UX', 'Python', 'Algorithm Development']
 videoLink: "https://youtu.be/rMRCVhyswRE?si=j-uxDSnUvIjO308h"
 github: "https://github.com/Norange01/FriendshipBraceletSolver"
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

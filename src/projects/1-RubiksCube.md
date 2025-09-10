@@ -8,6 +8,7 @@ imageHeight: 400px
 skills: ['Unity Game Engine', 'UI/UX', 'CS', 'Algorithm Development']
 videoLink: "https://youtu.be/vXzRhPgN0zE?si=nEk2alS5UR1XK7-D"
 github: ""
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []

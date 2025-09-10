@@ -8,6 +8,7 @@ imageHeight: 300px
 skills: ['AI', 'Python', 'CPP', 'Arduino', 'Data Processing and Analysis', 'Signal Processing', 'Research', 'Writing']
 videoLink: "https://www.macvideo.ca/media/Rhythm+Guard+-+Computing+and+Software/1_rz2r6ijf"
 github: "https://github.com/sarah-alabdulrazzak/RhythmGuard"
+pdf: ""
 links: []
 linkTitles: []
 linkTypes: []
