@@ -5,7 +5,7 @@ affiliation: 'McMaster University'
 year: '2023'
 images: ["GaitAssessor_UI_vs_Foot_Position","GaitAssessor_Gait_Patterns","GaitAssessor_Building_the_UI"]
 imageHeight: 300px
-skills: ['CPP', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'Signal Processing', 'Research']
+skills: ['CPP', 'Arduino', 'MATLAB', 'Data Processing and Analysis', 'UI/UX', 'Signal Processing', 'Research', 'CAD']
 videoLink:  "https://www.youtube.com/watch?v=ocvgvfC_OX0"
 github: "https://github.com/Norange01/GaitAssessor"
 pdf: ""
